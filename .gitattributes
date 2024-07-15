@@ -1,2 +1,14 @@
 # Normalize EOL for all files that Git considers text files.
 * text=auto eol=lf
+
+# Image files
+*.png filter=lfs diff=lfs merge=lfs -text
+
+# Font files
+*.ttf filter=lfs diff=lfs merge=lfs -text
+
+# Audio files
+*.wav filter=lfs diff=lfs merge=lfs -text
+
+# Mesh files
+*.glb filter=lfs diff=lfs merge=lfs -text
