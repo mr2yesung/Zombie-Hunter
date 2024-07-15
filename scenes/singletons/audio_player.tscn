@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgwfc5hbykg3b"]
+
+[ext_resource type="Script" path="res://scripts/singletons/audio_player.gd" id="1_cd0eq"]
+[ext_resource type="AudioStream" uid="uid://cr607wsku8r5" path="res://assets/audios/interactions/click.wav" id="1_gixvk"]
+
+[node name="AudioPlayer" type="Node"]
+script = ExtResource("1_cd0eq")
+
+[node name="ClickSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_gixvk")

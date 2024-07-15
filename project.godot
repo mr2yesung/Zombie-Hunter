@@ -14,6 +14,10 @@ config/name="Zombie Hunter"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AudioPlayer="*res://scenes/singletons/audio_player.tscn"
+
 [display]
 
 mouse_cursor/custom_image="res://assets/cursors/cursor_pointer.png"
