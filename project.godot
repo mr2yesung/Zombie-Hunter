@@ -18,3 +18,7 @@ config/icon="res://icon.svg"
 
 mouse_cursor/custom_image="res://assets/cursors/cursor_pointer.png"
 mouse_cursor/custom_image_hotspot=Vector2(8, 6)
+
+[gui]
+
+theme/custom_font="res://assets/fonts/kenney_high.ttf"
