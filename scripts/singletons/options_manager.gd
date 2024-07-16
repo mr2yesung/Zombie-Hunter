@@ -69,11 +69,14 @@ func load_settings() -> void:
 			if value.has("AntiAliasing") and typeof(value["AntiAliasing"]) == TYPE_INT:
 				anti_aliasing = cast_to_anti_aliasing(value["AntiAliasing"])
 			
-			if value.has("WindowMode") and typeof(value["WindowMode"]) == TYPE_INT:
-				window_mode = cast_to_window_mode(value["WindowMode"])
-			
+			# setting window mode before resolution causes a bug when loaded window mode is fullscreen
+			# when the window mode is set to fullscreen, the size change is not stored
+			# thus, changing back to windowed mode will result in changing the size to default (1600, 900) size
 			if value.has("Resolution") and typeof(value["Resolution"]) == TYPE_VECTOR2I:
 				resolution = value["Resolution"]
+			
+			if value.has("WindowMode") and typeof(value["WindowMode"]) == TYPE_INT:
+				window_mode = cast_to_window_mode(value["WindowMode"])
 			
 			if value.has("VSync") and typeof(value["VSync"]) == TYPE_BOOL:
 				vsync_enabled = value["VSync"]
