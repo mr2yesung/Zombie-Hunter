@@ -52,6 +52,8 @@ func _ready() -> void:
 	# get_item_index will also return -1 when no id found, no error is occurred even though -1 is passed as an argument
 	# select will deselect all when -1 is passed as an argument
 	resolution_button.select(resolution_button.get_item_index(OptionsManager.RESOLUTIONS.find(OptionsManager.resolution)))
+	
+	disable_resolution_button_on_fullscreen(OptionsManager.window_mode)
 
 
 func _on_back_button_pressed() -> void:
@@ -65,11 +67,7 @@ func _on_window_mode_button_item_selected(index: int) -> void:
 	
 	var window_mode := OptionsManager.cast_to_window_mode(window_mode_button.get_item_id(index))
 	
-	# disable resolution selection if fullscreen
-	if window_mode == OptionsManager.WindowMode.FULLSCREEN:
-		resolution_button.disabled = true
-	else:
-		resolution_button.disabled = false
+	disable_resolution_button_on_fullscreen(window_mode)
 	
 	OptionsManager.window_mode = window_mode
 	OptionsManager.save_settings()
@@ -94,3 +92,11 @@ func _on_resolution_button_item_selected(index: int) -> void:
 	
 	OptionsManager.resolution = OptionsManager.RESOLUTIONS[resolution_button.get_item_id(index)]
 	OptionsManager.save_settings()
+
+
+func disable_resolution_button_on_fullscreen(window_mode: OptionsManager.WindowMode) -> void:
+	# disable resolution selection if fullscreen
+	if window_mode == OptionsManager.WindowMode.FULLSCREEN:
+		resolution_button.disabled = true
+	else:
+		resolution_button.disabled = false
