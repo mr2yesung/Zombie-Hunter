@@ -2,11 +2,13 @@ extends Control
 
 
 signal main_to_options
+signal main_to_select
 
 
 func _on_start_button_pressed() -> void:
 	AudioPlayer.play_click()
 	# hide main screen, show weapon select screen
+	main_to_select.emit()
 
 
 func _on_options_button_pressed() -> void:

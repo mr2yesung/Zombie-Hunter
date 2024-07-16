@@ -13,4 +13,4 @@ OptionButton/colors/font_outline_color = Color(0, 0, 0, 1)
 OptionButton/constants/outline_size = 12
 OptionButton/font_sizes/font_size = 48
 OptionButton/styles/focus = SubResource("StyleBoxFlat_kqx4q")
-VBoxContainer/constants/separation = 25
+VBoxContainer/constants/separation = 10

@@ -1,13 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1j2ue4y0osoe"]
+[gd_scene load_steps=5 format=3 uid="uid://d1j2ue4y0osoe"]
 
 [ext_resource type="PackedScene" uid="uid://i38gtgp55q0g" path="res://scenes/main_menu/main_screen.tscn" id="1_2gpgf"]
 [ext_resource type="Script" path="res://scripts/main_menu/main_menu.gd" id="1_3ukpw"]
 [ext_resource type="PackedScene" uid="uid://d01n7u75kipxc" path="res://scenes/main_menu/options_screen.tscn" id="2_ccmwa"]
+[ext_resource type="PackedScene" uid="uid://cdchu1efn318g" path="res://scenes/main_menu/weapon_select_screen.tscn" id="4_0nou5"]
 
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_3ukpw")
 
 [node name="Camera3D" type="Camera3D" parent="."]
+cull_mask = 1048573
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -21,5 +23,10 @@ color = Color(0, 0, 0, 0.305882)
 
 [node name="OptionsScreen" parent="." instance=ExtResource("2_ccmwa")]
 
+[node name="WeaponSelectScreen" parent="." instance=ExtResource("4_0nou5")]
+
 [connection signal="main_to_options" from="MainScreen" to="." method="_on_main_to_options"]
+[connection signal="main_to_select" from="MainScreen" to="." method="_on_main_to_select"]
 [connection signal="options_to_main" from="OptionsScreen" to="." method="_on_options_to_main"]
+[connection signal="select_to_main" from="WeaponSelectScreen" to="." method="_on_select_to_main"]
+[connection signal="start_game" from="WeaponSelectScreen" to="." method="_on_start_game"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://vxtxetmjy5xr"]
+
+[ext_resource type="ButtonGroup" uid="uid://cs63fgck5kb0r" path="res://resources/weapon_selections/weapon_selection_button_group.tres" id="1_2o25b"]
+[ext_resource type="Script" path="res://scripts/main_menu/buttons/weapon_selection_button.gd" id="1_cs3ax"]
+
+[node name="WeaponSelectionButton" type="Button"]
+custom_minimum_size = Vector2(300, 80)
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 48
+toggle_mode = true
+button_group = ExtResource("1_2o25b")
+script = ExtResource("1_cs3ax")

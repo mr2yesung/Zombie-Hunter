@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 AudioPlayer="*res://scenes/singletons/audio_player.tscn"
 OptionsManager="*res://scripts/singletons/options_manager.gd"
+WeaponManager="*res://scripts/singletons/weapon_manager.gd"
 
 [display]
 
@@ -28,7 +29,12 @@ window/size/resizable=false
 window/stretch/mode="viewport"
 mouse_cursor/custom_image="res://assets/cursors/cursor_pointer.png"
 mouse_cursor/custom_image_hotspot=Vector2(8, 6)
+window/stdout/print_fps=false
 
 [gui]
 
 theme/custom_font="res://assets/fonts/kenney_high.ttf"
+
+[layer_names]
+
+3d_render/layer_2="weapons"

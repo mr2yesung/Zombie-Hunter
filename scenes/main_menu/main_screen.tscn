@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://i38gtgp55q0g"]
+[gd_scene load_steps=4 format=3 uid="uid://i38gtgp55q0g"]
 
 [ext_resource type="Theme" uid="uid://codxo4j8fmbmi" path="res://resources/uis/theme_button_blue.tres" id="1_elibn"]
 [ext_resource type="Script" path="res://scripts/main_menu/main_screen.gd" id="1_l44md"]
+[ext_resource type="PackedScene" uid="uid://q3iw0t4spey3" path="res://scenes/main_menu/title.tscn" id="2_jt4jq"]
 
 [node name="MainScreen" type="Control"]
 layout_mode = 3
@@ -12,22 +13,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l44md")
 
-[node name="Title" type="RichTextLabel" parent="."]
+[node name="Title" parent="." instance=ExtResource("2_jt4jq")]
 layout_mode = 1
-anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.1
 anchor_right = 0.5
 anchor_bottom = 0.1
-grow_horizontal = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 24
-theme_override_font_sizes/italics_font_size = 96
-bbcode_enabled = true
-text = "[center][wave amp=50 freq=2][i] Zombie Hunter [/i][/wave][/center]"
-fit_content = true
-scroll_active = false
-autowrap_mode = 0
 
 [node name="MainButtons" type="MarginContainer" parent="."]
 layout_mode = 1
