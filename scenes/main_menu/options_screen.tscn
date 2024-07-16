@@ -1,0 +1,107 @@
+[gd_scene load_steps=5 format=3 uid="uid://d01n7u75kipxc"]
+
+[ext_resource type="Script" path="res://scripts/main_menu/options_screen.gd" id="1_ei2p7"]
+[ext_resource type="Theme" uid="uid://cc4383eh3m54w" path="res://resources/uis/theme_button_dropdown.tres" id="2_7v3qj"]
+[ext_resource type="Theme" uid="uid://codxo4j8fmbmi" path="res://resources/uis/theme_button_blue.tres" id="3_3dq0u"]
+[ext_resource type="Script" path="res://scripts/main_menu/buttons/option_button.gd" id="3_kgd8i"]
+
+[node name="OptionsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ei2p7")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+theme = ExtResource("2_7v3qj")
+
+[node name="Resolution" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/Resolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Resolution"
+
+[node name="ResolutionButton" type="OptionButton" parent="CenterContainer/VBoxContainer/Resolution"]
+layout_mode = 2
+fit_to_longest_item = false
+script = ExtResource("3_kgd8i")
+
+[node name="WindowMode" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/WindowMode"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Window"
+
+[node name="WindowModeButton" type="OptionButton" parent="CenterContainer/VBoxContainer/WindowMode"]
+layout_mode = 2
+fit_to_longest_item = false
+script = ExtResource("3_kgd8i")
+
+[node name="AntiAliasing" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/AntiAliasing"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Anti Aliasing"
+
+[node name="AntiAliasingButton" type="OptionButton" parent="CenterContainer/VBoxContainer/AntiAliasing"]
+layout_mode = 2
+fit_to_longest_item = false
+script = ExtResource("3_kgd8i")
+
+[node name="VSync" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/VSync"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "VSync"
+
+[node name="VSyncButton" type="OptionButton" parent="CenterContainer/VBoxContainer/VSync"]
+layout_mode = 2
+fit_to_longest_item = false
+script = ExtResource("3_kgd8i")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="BackButton" type="Button" parent="MarginContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+theme = ExtResource("3_3dq0u")
+text = "Back"
+
+[connection signal="item_selected" from="CenterContainer/VBoxContainer/Resolution/ResolutionButton" to="." method="_on_resolution_button_item_selected"]
+[connection signal="item_selected" from="CenterContainer/VBoxContainer/WindowMode/WindowModeButton" to="." method="_on_window_mode_button_item_selected"]
+[connection signal="item_selected" from="CenterContainer/VBoxContainer/AntiAliasing/AntiAliasingButton" to="." method="_on_anti_aliasing_button_item_selected"]
+[connection signal="item_selected" from="CenterContainer/VBoxContainer/VSync/VSyncButton" to="." method="_on_vsync_button_item_selected"]
+[connection signal="pressed" from="MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

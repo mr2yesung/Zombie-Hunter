@@ -1,9 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1j2ue4y0osoe"]
+[gd_scene load_steps=4 format=3 uid="uid://d1j2ue4y0osoe"]
 
 [ext_resource type="PackedScene" uid="uid://i38gtgp55q0g" path="res://scenes/main_menu/main_screen.tscn" id="1_2gpgf"]
+[ext_resource type="Script" path="res://scripts/main_menu/main_menu.gd" id="1_3ukpw"]
+[ext_resource type="PackedScene" uid="uid://d01n7u75kipxc" path="res://scenes/main_menu/options_screen.tscn" id="2_ccmwa"]
 
 [node name="MainMenu" type="Node3D"]
+script = ExtResource("1_3ukpw")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.305882)
+
 [node name="MainScreen" parent="." instance=ExtResource("1_2gpgf")]
+
+[node name="OptionsScreen" parent="." instance=ExtResource("2_ccmwa")]
+
+[connection signal="main_to_options" from="MainScreen" to="." method="_on_main_to_options"]
+[connection signal="options_to_main" from="OptionsScreen" to="." method="_on_options_to_main"]

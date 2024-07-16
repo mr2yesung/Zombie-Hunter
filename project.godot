@@ -11,15 +11,21 @@ config_version=5
 [application]
 
 config/name="Zombie Hunter"
+config/use_custom_user_dir=true
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 AudioPlayer="*res://scenes/singletons/audio_player.tscn"
+OptionsManager="*res://scripts/singletons/options_manager.gd"
 
 [display]
 
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/size/resizable=false
+window/stretch/mode="viewport"
 mouse_cursor/custom_image="res://assets/cursors/cursor_pointer.png"
 mouse_cursor/custom_image_hotspot=Vector2(8, 6)
 
