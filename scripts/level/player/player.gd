@@ -1,8 +1,9 @@
+class_name Player
 extends CharacterBody3D
 
 
 const WALK_SPEED := 7.0
-const RUN_SPEED := 15.0
+const RUN_SPEED := 14.0
 const DECELERATION_SPEED := 50.0
 const JUMP_VELOCITY := 5.0
 const FALL_MULTIPLIER := 2.5
