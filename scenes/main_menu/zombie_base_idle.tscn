@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://bopg1wlg80q6b"]
+
+[ext_resource type="PackedScene" uid="uid://b3q5d62w5vptf" path="res://assets/meshes/enemies/zombie_base.glb" id="1_d4me1"]
+[ext_resource type="AnimationLibrary" uid="uid://qmanf60b7j05" path="res://resources/animations/zombie_idle.tres" id="2_few0o"]
+
+[node name="ZombieBaseIdle" instance=ExtResource("1_d4me1")]
+
+[node name="Skeleton3D" parent="Root" index="0"]
+bones/7/rotation = Quaternion(-0.707107, 1.54543e-08, 0.707107, -1.54543e-08)
+bones/16/rotation = Quaternion(-0.707107, -1.09685e-07, 0.707107, -1.54543e-08)
+bones/18/position = Vector3(0.006355, 1.3936, 0.018503)
+bones/18/rotation = Quaternion(-0.163883, -0.100077, 0.981321, 0.0116497)
+bones/20/rotation = Quaternion(-0.0402445, -0.0064495, 0.0148263, 0.999059)
+bones/23/rotation = Quaternion(0.154496, 0.00881995, 0.00448786, 0.987944)
+bones/24/rotation = Quaternion(-0.267519, 0.118819, -0.0447378, 0.955152)
+bones/26/rotation = Quaternion(0.567541, 0.284341, 0.601067, -0.485557)
+bones/27/rotation = Quaternion(-0.0792127, 0.715232, -0.36918, 0.588111)
+bones/28/rotation = Quaternion(0.670558, 0.0093367, 0.0111277, 0.741715)
+bones/29/rotation = Quaternion(-0.148548, 0.817524, 0.181248, 0.526058)
+bones/30/rotation = Quaternion(0.109591, -0.165112, 0.0794629, 0.976941)
+bones/31/rotation = Quaternion(0.176887, 0.0629089, -0.02508, 0.981898)
+bones/32/rotation = Quaternion(0.371777, -0.0312415, -0.0346349, 0.92715)
+bones/34/rotation = Quaternion(-0.055627, 0.783561, 0.281625, 0.551023)
+bones/35/rotation = Quaternion(0.191509, 0.0125321, 0.0452918, 0.980365)
+bones/37/rotation = Quaternion(0.752009, -0.489711, 0.409873, 0.163308)
+bones/38/rotation = Quaternion(0.285618, 0.872192, 0.33698, -0.210114)
+bones/39/rotation = Quaternion(-0.0582538, -0.00342595, 0.693863, 0.717739)
+bones/40/rotation = Quaternion(-0.0317495, -0.215632, 0.059954, 0.974115)
+bones/41/rotation = Quaternion(0.181801, -0.0853213, -0.0309981, 0.979136)
+bones/42/rotation = Quaternion(-0.378719, 0.0651236, -0.0470931, 0.922016)
+bones/43/rotation = Quaternion(-0.10188, -0.0284923, -0.0123839, 0.994312)
+bones/45/rotation = Quaternion(-0.346956, 0.826736, -0.256657, -0.36091)
+bones/46/rotation = Quaternion(-0.512875, 0.0229855, 0.248334, 0.821439)
+bones/48/rotation = Quaternion(0.876937, 0.278536, 0.0199213, 0.391156)
+bones/48/scale = Vector3(1.00005, 0.999955, 1)
+bones/49/rotation = Quaternion(0.486078, -0.0334108, 0.153231, 0.859728)
+bones/50/rotation = Quaternion(-0.542507, -0.26644, -0.00889154, 0.796628)
+bones/53/rotation = Quaternion(0.914266, -0.218168, -0.0824072, 0.331253)
+bones/54/rotation = Quaternion(0.46683, 0.0846937, -0.176908, 0.862323)
+bones/55/rotation = Quaternion(-0.577466, 0.290201, 0.0211618, 0.762803)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+"zombie_idle": ExtResource("2_few0o")
+}
+autoplay = "zombie_idle/idle"
