@@ -1,11 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://d1j2ue4y0osoe"]
+[gd_scene load_steps=14 format=3 uid="uid://d1j2ue4y0osoe"]
 
 [ext_resource type="PackedScene" uid="uid://i38gtgp55q0g" path="res://scenes/main_menu/main_screen.tscn" id="1_2gpgf"]
 [ext_resource type="Script" path="res://scripts/main_menu/main_menu.gd" id="1_3ukpw"]
 [ext_resource type="PackedScene" uid="uid://d01n7u75kipxc" path="res://scenes/main_menu/options_screen.tscn" id="2_ccmwa"]
 [ext_resource type="PackedScene" uid="uid://cmjx0hmdwe01" path="res://scenes/level/level.tscn" id="2_hosds"]
 [ext_resource type="PackedScene" uid="uid://cdchu1efn318g" path="res://scenes/main_menu/weapon_select_screen.tscn" id="4_0nou5"]
-[ext_resource type="MeshLibrary" uid="uid://gk2vsktfyrao" path="res://resources/gridmaps/floor.tres" id="5_kinuu"]
 [ext_resource type="PackedScene" uid="uid://bopg1wlg80q6b" path="res://scenes/main_menu/zombie_base_idle.tscn" id="6_owekx"]
 [ext_resource type="PackedScene" uid="uid://beawrv3oy2kae" path="res://assets/meshes/backgrounds/wall_door.glb" id="7_5hsf7"]
 [ext_resource type="PackedScene" uid="uid://biwss5o74nfba" path="res://assets/meshes/backgrounds/door_broken.glb" id="8_d3jf6"]
@@ -53,16 +52,6 @@ color = Color(0, 0, 0, 0.305882)
 [node name="WeaponSelectScreen" parent="." instance=ExtResource("4_0nou5")]
 
 [node name="Background" type="Node3D" parent="."]
-
-[node name="GridMap" type="GridMap" parent="Background"]
-mesh_library = ExtResource("5_kinuu")
-cell_size = Vector3(15, 9, 15)
-cell_center_x = false
-cell_center_y = false
-cell_center_z = false
-data = {
-"cells": PackedInt32Array(1, 0, 1048576, 0, 0, 1048576, 65535, 0, 1048576, 65534, 0, 1048576, 65534, 65535, 1048576, 65535, 65535, 1048576, 0, 65535, 1048576, 1, 65535, 1048576, 1, 65534, 1048576, 0, 65534, 1048576, 65535, 65534, 1048576, 65534, 65534, 1048576)
-}
 
 [node name="ZombieBaseIdle" parent="Background" instance=ExtResource("6_owekx")]
 transform = Transform3D(0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, 2, 0, -1)
@@ -132,6 +121,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 9, -30)
 
 [node name="wall8" parent="Background" instance=ExtResource("10_psn5c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 9, -30)
+
+[node name="Floor" type="CSGBox3D" parent="Background"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, -7.5)
+size = Vector3(60, 0.3, 45)
 
 [connection signal="main_to_options" from="MainScreen" to="." method="_on_main_to_options"]
 [connection signal="main_to_select" from="MainScreen" to="." method="_on_main_to_select"]

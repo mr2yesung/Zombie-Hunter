@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1bulgtulbirm"]
+
+[ext_resource type="PackedScene" uid="uid://cwyanaa6tngmh" path="res://assets/meshes/backgrounds/floor_triangle.glb" id="1_qpy6w"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_i5o8o"]
+points = PackedVector3Array(-15, 0, 0, 0, 0, 15, 0, 0, 0, 0, -0.3, 15, 0, -0.3, 0, -15, -0.3, 0)
+
+[node name="floor_triangle" instance=ExtResource("1_qpy6w")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_i5o8o")

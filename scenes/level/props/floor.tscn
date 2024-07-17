@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3wfk3gv5533p"]
+
+[ext_resource type="PackedScene" uid="uid://bh3qse0acbcpa" path="res://assets/meshes/backgrounds/floor.glb" id="1_pmgfe"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_byyln"]
+size = Vector3(15, 0.3, 15)
+
+[node name="floor" instance=ExtResource("1_pmgfe")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, -0.15, 7.5)
+shape = SubResource("BoxShape3D_byyln")
