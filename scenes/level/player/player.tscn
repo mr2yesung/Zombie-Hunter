@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg6b253fifg4g"]
+
+[ext_resource type="Script" path="res://scripts/level/player/player.gd" id="1_d05mm"]
+[ext_resource type="Script" path="res://scripts/level/player/smooth_camera.gd" id="2_5sklg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ukj58"]
+radius = 1.0
+height = 4.0
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_d05mm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ukj58")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+
+[node name="SmoothCamera" type="Camera3D" parent="CameraPivot"]
+top_level = true
+cull_mask = 1048573
+script = ExtResource("2_5sklg")
