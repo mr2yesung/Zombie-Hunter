@@ -19,8 +19,8 @@ weapon_type = 1
 [node name="rocket_launcher" parent="." index="1" instance=ExtResource("3_hpiwh")]
 transform = Transform3D(-4, 0, 3.49691e-07, 0, 4, 0, -3.49691e-07, 0, -4, 0.206991, -0.135164, -0.583725)
 
-[node name="Marker3D" type="Marker3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
-
-[node name="MuzzleFlashLarge" parent="." index="3" instance=ExtResource("4_3xcb7")]
+[node name="MuzzleFlashLarge" parent="." index="2" instance=ExtResource("4_3xcb7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.205766, -0.0921578, -0.906157)
+
+[node name="Marker3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.906353)

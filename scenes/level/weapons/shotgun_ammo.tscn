@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7vpangxqaipp"]
+
+[ext_resource type="PackedScene" uid="uid://2kivxnydlcma" path="res://scenes/level/weapons/projectile_ammo.tscn" id="1_t2yii"]
+[ext_resource type="PackedScene" uid="uid://rgt6rq1mvxst" path="res://scenes/level/weapons/shotgun_explosion_particle.tscn" id="2_w578x"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kfc52"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="ShotgunAmmo" instance=ExtResource("1_t2yii")]
+projectile_speed = 30.0
+explosion_particle = ExtResource("2_w578x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_kfc52")
+
+[node name="AmmoLifeTimer" parent="." index="1"]
+wait_time = 1.0

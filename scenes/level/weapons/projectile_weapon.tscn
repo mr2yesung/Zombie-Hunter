@@ -8,3 +8,6 @@ cooldown_timer = NodePath("CooldownTimer")
 
 [node name="CooldownTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)

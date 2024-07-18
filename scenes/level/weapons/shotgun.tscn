@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://d127c3wfowl3y"]
+
+[ext_resource type="PackedScene" uid="uid://dif0wfrpmn40i" path="res://scenes/level/weapons/projectile_weapon.tscn" id="1_hogx0"]
+[ext_resource type="PackedScene" uid="uid://b7vpangxqaipp" path="res://scenes/level/weapons/shotgun_ammo.tscn" id="2_0aaua"]
+[ext_resource type="PackedScene" uid="uid://ird17ltstxeb" path="res://assets/meshes/weapons/shotgun.glb" id="2_clkg8"]
+[ext_resource type="PackedScene" uid="uid://r8d1s46hcwpb" path="res://scenes/level/weapons/muzzle_flash_large.tscn" id="3_fhguo"]
+
+[node name="Shotgun" node_paths=PackedStringArray("weapon_mesh", "muzzle_flash") instance=ExtResource("1_hogx0")]
+ammo_scene = ExtResource("2_0aaua")
+particle_damage = 20
+spread = true
+max_spread_angle = 10.0
+particle_per_ammo = 8
+weapon_mesh = NodePath("shotgun")
+magazine_capacity = 10
+fire_rate = 1.0
+recoil = 0.08
+muzzle_flash = NodePath("MuzzleFlashLarge")
+weapon_type = 2
+
+[node name="shotgun" parent="." index="1" instance=ExtResource("2_clkg8")]
+transform = Transform3D(-4, 0, 3.49691e-07, 0, 4, 0, -3.49691e-07, 0, -4, 0.206991, -0.113126, -0.47888)
+
+[node name="Marker3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.636236)
+
+[node name="MuzzleFlashLarge" parent="." index="3" instance=ExtResource("3_fhguo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.208869, -0.0890117, -0.632722)

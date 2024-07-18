@@ -3,9 +3,13 @@ extends Weapon
 
 @export var ammo_scene: PackedScene
 @export var particle_damage: int
+## Whether the ammo will spread as shotgun
 @export var spread := false
+## Spread angle when the ammo spreads
+@export var max_spread_angle := 45.0
 @export var particle_per_ammo := 1
-@export var ammo_initial_position: Marker3D
+
+@onready var ammo_initial_position: Marker3D = $Marker3D
 
 
 func _process(delta: float) -> void:
@@ -19,9 +23,13 @@ func _process(delta: float) -> void:
 func _shoot() -> void:
 	fire()
 	
-	var ammo := ammo_scene.instantiate()
-	add_child(ammo)
-	
-	ammo.global_position = ammo_initial_position.global_position
-	ammo.damage = particle_damage
-	ammo.direction = -global_transform.basis.z
+	for i in particle_per_ammo:
+		var ammo := ammo_scene.instantiate()
+		add_child(ammo)
+		
+		ammo.global_position = ammo_initial_position.global_position
+		ammo.damage = particle_damage
+		
+		var base_direction = -global_transform.basis.z
+		# spread in horizontal direction randomly
+		ammo.direction = base_direction.rotated(Vector3.UP, deg_to_rad(randf_range(-max_spread_angle, max_spread_angle))) if spread else base_direction
