@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cg6b253fifg4g"]
+[gd_scene load_steps=6 format=3 uid="uid://cg6b253fifg4g"]
 
 [ext_resource type="Script" path="res://scripts/level/player/player.gd" id="1_d05mm"]
 [ext_resource type="Script" path="res://scripts/level/player/smooth_camera.gd" id="2_5sklg"]
+[ext_resource type="PackedScene" uid="uid://dq4yxt43g5als" path="res://scenes/level/weapons/machine_gun.tscn" id="3_1npvi"]
 [ext_resource type="Script" path="res://scripts/level/player/crosshair.gd" id="3_r2m71"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ukj58"]
@@ -23,16 +24,29 @@ top_level = true
 cull_mask = 1048573
 script = ExtResource("2_5sklg")
 
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="CameraPivot/SmoothCamera"]
+remote_path = NodePath("../../../SubViewportContainer/SubViewport/WeaponCamera")
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+transparent_bg = true
 handle_input_locally = false
+size = Vector2i(1600, 900)
 render_target_update_mode = 4
 
 [node name="WeaponCamera" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 cull_mask = 2
+fov = 40.0
+
+[node name="MachineGun" parent="SubViewportContainer/SubViewport/WeaponCamera" instance=ExtResource("3_1npvi")]
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15

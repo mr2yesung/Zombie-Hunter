@@ -35,7 +35,8 @@ func _physics_process(delta: float) -> void:
 	
 	if distance <= GAME_OVER_DISTANCE_SQUARED:
 		# TODO: add game over
-		print("player died")
+		#print("player died")
+		pass
 	
 	if not provoked and distance <= AGGRO_RANGE_SQUARED:
 		provoked = true
