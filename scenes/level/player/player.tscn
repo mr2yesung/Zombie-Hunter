@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://cg6b253fifg4g"]
+[gd_scene load_steps=9 format=3 uid="uid://cg6b253fifg4g"]
 
 [ext_resource type="Script" path="res://scripts/level/player/player.gd" id="1_d05mm"]
 [ext_resource type="Script" path="res://scripts/level/player/smooth_camera.gd" id="2_5sklg"]
 [ext_resource type="PackedScene" uid="uid://dq4yxt43g5als" path="res://scenes/level/weapons/machine_gun.tscn" id="3_1npvi"]
 [ext_resource type="Script" path="res://scripts/level/player/crosshair.gd" id="3_r2m71"]
+[ext_resource type="Script" path="res://scripts/level/player/weapon_spawner.gd" id="5_nwx4e"]
+[ext_resource type="PackedScene" uid="uid://8wqw368dp1ho" path="res://scenes/level/weapons/sniper.tscn" id="6_wa77t"]
+[ext_resource type="PackedScene" uid="uid://dbyxkeya1epo3" path="res://scenes/level/weapons/uzi.tscn" id="7_lncqh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ukj58"]
 radius = 0.75
@@ -46,8 +49,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 cull_mask = 2
 fov = 40.0
 
-[node name="MachineGun" parent="SubViewportContainer/SubViewport/WeaponCamera" instance=ExtResource("3_1npvi")]
-
 [node name="CenterContainer" type="CenterContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,3 +81,10 @@ default_color = Color(1, 0, 0, 1)
 points = PackedVector2Array(5, 0, 10, 0)
 width = 1.0
 default_color = Color(1, 0, 0, 1)
+
+[node name="WeaponSpawner" type="Node" parent="." node_paths=PackedStringArray("weapon_parent_camera")]
+script = ExtResource("5_nwx4e")
+weapon_parent_camera = NodePath("../SubViewportContainer/SubViewport/WeaponCamera")
+machine_gun_scene = ExtResource("3_1npvi")
+sniper_scene = ExtResource("6_wa77t")
+uzi_scene = ExtResource("7_lncqh")

@@ -10,15 +10,18 @@ extends Weapon
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("fire"):
-		if cooldown_timer.is_stopped():
-			_shoot()
+	if cooldown_timer.is_stopped():
+		if automatic:
+			if Input.is_action_pressed("fire"):
+				_shoot()
+		else:
+			if Input.is_action_just_pressed("fire"):
+				_shoot()
 	
 	weapon_mesh.position = weapon_mesh.position.lerp(weapon_position, delta * RECOIL_RECOVERY_RATE)
 
 
 func _shoot() -> void:
-	
 	cooldown_timer.start(1.0 / fire_rate)
 	
 	weapon_mesh.position.z += recoil
