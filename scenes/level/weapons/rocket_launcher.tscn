@@ -1,20 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://2evpa7lake1r"]
+[gd_scene load_steps=6 format=3 uid="uid://2evpa7lake1r"]
 
 [ext_resource type="PackedScene" uid="uid://dif0wfrpmn40i" path="res://scenes/level/weapons/projectile_weapon.tscn" id="1_2a7m8"]
 [ext_resource type="PackedScene" uid="uid://bhd0xxdov5doy" path="res://scenes/level/weapons/rocket_launcher_ammo.tscn" id="2_uchxx"]
+[ext_resource type="PackedScene" uid="uid://bcg8q6rchaw7e" path="res://scenes/level/weapons/sounds/rocket_launcher_sound_player.tscn" id="3_33fnl"]
 [ext_resource type="PackedScene" uid="uid://bbs0xvuylbt0k" path="res://assets/meshes/weapons/rocket_launcher.glb" id="3_hpiwh"]
 [ext_resource type="PackedScene" uid="uid://r8d1s46hcwpb" path="res://scenes/level/weapons/muzzle_flash_large.tscn" id="4_3xcb7"]
 
-[node name="RocketLauncher" node_paths=PackedStringArray("ammo_initial_position", "weapon_mesh", "muzzle_flash") instance=ExtResource("1_2a7m8")]
+[node name="RocketLauncher" node_paths=PackedStringArray("weapon_mesh", "muzzle_flash") instance=ExtResource("1_2a7m8")]
 ammo_scene = ExtResource("2_uchxx")
 particle_damage = 200
-ammo_initial_position = NodePath("Marker3D")
 weapon_mesh = NodePath("rocket_launcher")
 magazine_capacity = 3
 fire_rate = 0.5
 recoil = 0.2
 muzzle_flash = NodePath("MuzzleFlashLarge")
 weapon_type = 1
+gun_sound_player = ExtResource("3_33fnl")
 
 [node name="rocket_launcher" parent="." index="1" instance=ExtResource("3_hpiwh")]
 transform = Transform3D(-4, 0, 3.49691e-07, 0, 4, 0, -3.49691e-07, 0, -4, 0.206991, -0.135164, -0.583725)

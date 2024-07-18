@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbaffhlbbx4bv"]
+
+[ext_resource type="Script" path="res://scripts/level/weapons/sounds/gun_sound_player.gd" id="1_sdbw4"]
+
+[node name="GunSoundPlayer" type="AudioStreamPlayer"]
+autoplay = true
+script = ExtResource("1_sdbw4")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

@@ -1,17 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://dq4yxt43g5als"]
+[gd_scene load_steps=5 format=3 uid="uid://dq4yxt43g5als"]
 
 [ext_resource type="PackedScene" uid="uid://bgqa4ms1kod6a" path="res://scenes/level/weapons/raycast_weapon.tscn" id="1_t4o3i"]
 [ext_resource type="PackedScene" uid="uid://03mavu5une1m" path="res://assets/meshes/weapons/machine_gun.glb" id="2_drflo"]
+[ext_resource type="PackedScene" uid="uid://bq0sbpblsu5cu" path="res://scenes/level/weapons/sounds/machine_gun_sound_player.tscn" id="2_ebnyj"]
 [ext_resource type="PackedScene" uid="uid://m3g8c17q50kf" path="res://scenes/level/weapons/muzzle_flash_small.tscn" id="3_gr3wp"]
 
 [node name="MachineGun" node_paths=PackedStringArray("weapon_mesh", "muzzle_flash") instance=ExtResource("1_t4o3i")]
+damage = 20
 automatic = true
 weapon_mesh = NodePath("machine_gun")
-damage = 20
 magazine_capacity = 30
 fire_rate = 14.0
 recoil = 0.05
 muzzle_flash = NodePath("MuzzleFlashSmall")
+gun_sound_player = ExtResource("2_ebnyj")
 
 [node name="machine_gun" parent="." index="1" instance=ExtResource("2_drflo")]
 transform = Transform3D(-4, 0, -6.03983e-07, 0, 4, 0, 6.03983e-07, 0, -4, 0.143625, -0.0557357, -0.36265)

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcg8q6rchaw7e"]
+
+[ext_resource type="PackedScene" uid="uid://bbaffhlbbx4bv" path="res://scenes/level/weapons/sounds/gun_sound_player.tscn" id="1_r1po2"]
+[ext_resource type="AudioStream" uid="uid://cd5lovrxh7neq" path="res://assets/audios/guns/rocket_launcher.wav" id="2_270kf"]
+
+[node name="RocketLauncherSoundPlayer" instance=ExtResource("1_r1po2")]
+stream = ExtResource("2_270kf")

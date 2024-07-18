@@ -11,6 +11,7 @@ const RECOIL_RECOVERY_RATE := 10.0
 @export var muzzle_flash: GPUParticles3D
 @export var weapon_type: WeaponManager.MainWeapon
 @export var cooldown_timer: Timer
+@export var gun_sound_player: PackedScene
 
 # export variables cannot be used before onready
 @onready var current_ammo := magazine_capacity:
@@ -31,6 +32,9 @@ func _shoot(callback: Callable) -> void:
 	weapon_mesh.position.z += recoil
 	
 	muzzle_flash.restart()
+	
+	var sound = gun_sound_player.instantiate()
+	add_child(sound)
 	
 	callback.call()
 

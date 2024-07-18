@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpo03pya8lt2w"]
+
+[ext_resource type="PackedScene" uid="uid://bbaffhlbbx4bv" path="res://scenes/level/weapons/sounds/gun_sound_player.tscn" id="1_fy214"]
+[ext_resource type="AudioStream" uid="uid://cnx4ht3t5rbjb" path="res://assets/audios/guns/uzi.wav" id="2_62g8l"]
+
+[node name="UziSoundPlayer" instance=ExtResource("1_fy214")]
+stream = ExtResource("2_62g8l")

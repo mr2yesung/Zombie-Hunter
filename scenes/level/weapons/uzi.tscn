@@ -1,18 +1,20 @@
-[gd_scene load_steps=4 format=3 uid="uid://dbyxkeya1epo3"]
+[gd_scene load_steps=5 format=3 uid="uid://dbyxkeya1epo3"]
 
 [ext_resource type="PackedScene" uid="uid://bgqa4ms1kod6a" path="res://scenes/level/weapons/raycast_weapon.tscn" id="1_l6m1r"]
 [ext_resource type="PackedScene" uid="uid://deda5wq88ijed" path="res://assets/meshes/weapons/uzi.glb" id="2_56k5w"]
+[ext_resource type="PackedScene" uid="uid://cpo03pya8lt2w" path="res://scenes/level/weapons/sounds/uzi_sound_player.tscn" id="2_mdr0m"]
 [ext_resource type="PackedScene" uid="uid://m3g8c17q50kf" path="res://scenes/level/weapons/muzzle_flash_small.tscn" id="3_3qexr"]
 
 [node name="Uzi" node_paths=PackedStringArray("weapon_mesh", "muzzle_flash") instance=ExtResource("1_l6m1r")]
+damage = 9
 automatic = true
 weapon_mesh = NodePath("uzi")
-damage = 9
 magazine_capacity = 35
 fire_rate = 25.0
 recoil = 0.02
 muzzle_flash = NodePath("MuzzleFlashSmall")
 weapon_type = 4
+gun_sound_player = ExtResource("2_mdr0m")
 
 [node name="uzi" parent="." index="1" instance=ExtResource("2_56k5w")]
 transform = Transform3D(-4, 0, 3.49691e-07, 0, 4, 0, -3.49691e-07, 0, -4, 0.142889, -0.0970731, -0.284473)

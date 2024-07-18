@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq0sbpblsu5cu"]
+
+[ext_resource type="PackedScene" uid="uid://bbaffhlbbx4bv" path="res://scenes/level/weapons/sounds/gun_sound_player.tscn" id="1_5j6gp"]
+[ext_resource type="AudioStream" uid="uid://ye6llg81vyaj" path="res://assets/audios/guns/machine_gun.wav" id="2_82w3r"]
+
+[node name="MachineGunSoundPlayer" instance=ExtResource("1_5j6gp")]
+stream = ExtResource("2_82w3r")

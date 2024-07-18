@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://crcuqd8ht83vo"]
+
+[ext_resource type="PackedScene" uid="uid://bbaffhlbbx4bv" path="res://scenes/level/weapons/sounds/gun_sound_player.tscn" id="1_pneql"]
+[ext_resource type="AudioStream" uid="uid://b4225f775plxq" path="res://assets/audios/guns/shotgun.wav" id="2_bk3pb"]
+
+[node name="ShotgunSoundPlayer" instance=ExtResource("1_pneql")]
+stream = ExtResource("2_bk3pb")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d127c3wfowl3y"]
+[gd_scene load_steps=6 format=3 uid="uid://d127c3wfowl3y"]
 
 [ext_resource type="PackedScene" uid="uid://dif0wfrpmn40i" path="res://scenes/level/weapons/projectile_weapon.tscn" id="1_hogx0"]
 [ext_resource type="PackedScene" uid="uid://b7vpangxqaipp" path="res://scenes/level/weapons/shotgun_ammo.tscn" id="2_0aaua"]
 [ext_resource type="PackedScene" uid="uid://ird17ltstxeb" path="res://assets/meshes/weapons/shotgun.glb" id="2_clkg8"]
 [ext_resource type="PackedScene" uid="uid://r8d1s46hcwpb" path="res://scenes/level/weapons/muzzle_flash_large.tscn" id="3_fhguo"]
+[ext_resource type="PackedScene" uid="uid://crcuqd8ht83vo" path="res://scenes/level/weapons/sounds/shotgun_sound_player.tscn" id="3_g2hip"]
 
 [node name="Shotgun" node_paths=PackedStringArray("weapon_mesh", "muzzle_flash") instance=ExtResource("1_hogx0")]
 ammo_scene = ExtResource("2_0aaua")
@@ -17,6 +18,7 @@ fire_rate = 1.0
 recoil = 0.08
 muzzle_flash = NodePath("MuzzleFlashLarge")
 weapon_type = 2
+gun_sound_player = ExtResource("3_g2hip")
 
 [node name="shotgun" parent="." index="1" instance=ExtResource("2_clkg8")]
 transform = Transform3D(-4, 0, 3.49691e-07, 0, 4, 0, -3.49691e-07, 0, -4, 0.206991, -0.113126, -0.47888)
