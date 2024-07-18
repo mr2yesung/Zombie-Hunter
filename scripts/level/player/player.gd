@@ -20,10 +20,15 @@ var stamina: float = MAX_STAMINA:
 @onready var camera_pivot: Node3D = $CameraPivot
 @onready var state_machine: StateMachine = $StateMachine
 @onready var playback: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
+@onready var stamina_bar: ProgressBar = $StatsUI/StaminaBarMargin/StaminaBar
 
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
+func _process(delta: float) -> void:
+	stamina_bar.value = stamina / MAX_STAMINA * 100.0
 
 
 func _physics_process(delta: float) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cg6b253fifg4g"]
+[gd_scene load_steps=33 format=3 uid="uid://cg6b253fifg4g"]
 
 [ext_resource type="Script" path="res://scripts/level/player/player.gd" id="1_d05mm"]
 [ext_resource type="Script" path="res://scripts/level/player/smooth_camera.gd" id="2_5sklg"]
@@ -101,6 +101,9 @@ states/run/position = Vector2(453, 77)
 states/walk/node = SubResource("AnimationNodeAnimation_caqud")
 states/walk/position = Vector2(348, 155)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_utimx"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_df2rw"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_g10gd"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_u2lf1"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_5ltl3"), "run", "walk", SubResource("AnimationNodeStateMachineTransition_i651w"), "walk", "run", SubResource("AnimationNodeStateMachineTransition_s3eum")]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04iwr"]
+bg_color = Color(0, 0.470588, 0.0862745, 1)
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_d05mm")
@@ -218,5 +221,31 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_166wo")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="StatsUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StaminaBarMargin" type="MarginContainer" parent="StatsUI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="StaminaBar" type="ProgressBar" parent="StatsUI/StaminaBarMargin"]
+custom_minimum_size = Vector2(50, 300)
+layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxFlat_04iwr")
+fill_mode = 3
+show_percentage = false
 
 [connection signal="timeout" from="StateMachine/Fall/FallTimeTimer" to="StateMachine/Fall" method="_on_fall_time_timer_timeout"]
