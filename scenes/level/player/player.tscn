@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cg6b253fifg4g"]
+[gd_scene load_steps=10 format=3 uid="uid://cg6b253fifg4g"]
 
 [ext_resource type="Script" path="res://scripts/level/player/player.gd" id="1_d05mm"]
 [ext_resource type="Script" path="res://scripts/level/player/smooth_camera.gd" id="2_5sklg"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/level/player/weapon_spawner.gd" id="5_nwx4e"]
 [ext_resource type="PackedScene" uid="uid://8wqw368dp1ho" path="res://scenes/level/weapons/sniper.tscn" id="6_wa77t"]
 [ext_resource type="PackedScene" uid="uid://dbyxkeya1epo3" path="res://scenes/level/weapons/uzi.tscn" id="7_lncqh"]
+[ext_resource type="PackedScene" uid="uid://2evpa7lake1r" path="res://scenes/level/weapons/rocket_launcher.tscn" id="8_2kdj6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ukj58"]
 radius = 0.75
@@ -88,3 +89,4 @@ weapon_parent_camera = NodePath("../SubViewportContainer/SubViewport/WeaponCamer
 machine_gun_scene = ExtResource("3_1npvi")
 sniper_scene = ExtResource("6_wa77t")
 uzi_scene = ExtResource("7_lncqh")
+rocket_launcher_scene = ExtResource("8_2kdj6")

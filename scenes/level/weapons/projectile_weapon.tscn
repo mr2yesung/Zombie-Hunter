@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dif0wfrpmn40i"]
+
+[ext_resource type="Script" path="res://scripts/level/weapons/projectile_weapon.gd" id="1_p1kbt"]
+
+[node name="ProjectileWeapon" type="Node3D" node_paths=PackedStringArray("cooldown_timer")]
+script = ExtResource("1_p1kbt")
+cooldown_timer = NodePath("CooldownTimer")
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true

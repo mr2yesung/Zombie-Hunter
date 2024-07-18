@@ -4,10 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://b1cuduj3sscq6" path="res://scenes/level/weapons/sparks.tscn" id="2_t1nfk"]
 [ext_resource type="PackedScene" uid="uid://kydh715ahbm8" path="res://scenes/level/weapons/bloods.tscn" id="3_jna6w"]
 
-[node name="RaycastWeapon" type="Node3D"]
+[node name="RaycastWeapon" type="Node3D" node_paths=PackedStringArray("cooldown_timer")]
 script = ExtResource("1_1lqf5")
 spark_scene = ExtResource("2_t1nfk")
 blood_scene = ExtResource("3_jna6w")
+cooldown_timer = NodePath("CooldownTimer")
 
 [node name="CooldownTimer" type="Timer" parent="."]
 one_shot = true

@@ -16,6 +16,7 @@ size = Vector3(0.01, 0.01, 0.01)
 
 [node name="MuzzleFlashLarge" type="GPUParticles3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.139653, -0.0420723, -0.830027)
+layers = 2
 material_override = SubResource("StandardMaterial3D_7flks")
 cast_shadow = 0
 emitting = false

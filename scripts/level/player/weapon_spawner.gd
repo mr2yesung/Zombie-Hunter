@@ -6,6 +6,7 @@ extends Node
 @export var machine_gun_scene: PackedScene
 @export var sniper_scene: PackedScene
 @export var uzi_scene: PackedScene
+@export var rocket_launcher_scene: PackedScene
 
 
 func _ready() -> void:
@@ -18,7 +19,7 @@ func instantiate_weapon(weapon_type: WeaponManager.MainWeapon) -> Node:
 		WeaponManager.MainWeapon.MACHINE_GUN:
 			return machine_gun_scene.instantiate()
 		WeaponManager.MainWeapon.ROCKET_LAUNCHER:
-			return machine_gun_scene.instantiate()
+			return rocket_launcher_scene.instantiate()
 		WeaponManager.MainWeapon.SHOTGUN:
 			return machine_gun_scene.instantiate()
 		WeaponManager.MainWeapon.SNIPER:

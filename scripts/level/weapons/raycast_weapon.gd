@@ -1,11 +1,11 @@
 extends Weapon
 
 
+@export var damage: int
 @export var automatic: bool
 @export var spark_scene: PackedScene
 @export var blood_scene: PackedScene
 
-@onready var cooldown_timer: Timer = $CooldownTimer
 @onready var raycast_3d: RayCast3D = $RayCast3D
 
 
@@ -18,15 +18,11 @@ func _process(delta: float) -> void:
 			if Input.is_action_just_pressed("fire"):
 				_shoot()
 	
-	weapon_mesh.position = weapon_mesh.position.lerp(weapon_position, delta * RECOIL_RECOVERY_RATE)
+	recover_recoil(delta)
 
 
 func _shoot() -> void:
-	cooldown_timer.start(1.0 / fire_rate)
-	
-	weapon_mesh.position.z += recoil
-	
-	muzzle_flash.restart()
+	fire()
 	
 	var collider := raycast_3d.get_collider()
 	if raycast_3d.is_colliding():
