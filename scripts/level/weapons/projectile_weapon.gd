@@ -14,17 +14,12 @@ extends Weapon
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("fire"):
-		_shoot()
+		_shoot(shoot_projectile)
 	
 	recover_recoil(delta)
 
 
-func _shoot() -> void:
-	if not cooldown_timer.is_stopped():
-		return
-	
-	fire()
-	
+func shoot_projectile() -> void:
 	for i in particle_per_ammo:
 		var ammo := ammo_scene.instantiate()
 		add_child(ammo)

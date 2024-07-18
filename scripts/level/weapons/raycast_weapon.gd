@@ -12,20 +12,15 @@ extends Weapon
 func _process(delta: float) -> void:
 	if automatic:
 		if Input.is_action_pressed("fire"):
-			_shoot()
+			_shoot(shoot_raycast)
 	else:
 		if Input.is_action_just_pressed("fire"):
-			_shoot()
+			_shoot(shoot_raycast)
 	
 	recover_recoil(delta)
 
 
-func _shoot() -> void:
-	if not cooldown_timer.is_stopped():
-		return
-	
-	fire()
-	
+func shoot_raycast() -> void:
 	var collider := raycast_3d.get_collider()
 	if raycast_3d.is_colliding():
 		if collider is Enemy:
