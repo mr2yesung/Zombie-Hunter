@@ -19,7 +19,7 @@ func _draw() -> void:
 
 func adjust_crosshair_lines() -> void:
 	var player_speed := player.get_real_velocity().distance_squared_to(Vector3.ZERO)
-	var player_speed_ratio := player_speed / pow(player.WALK_SPEED, 2.0)
+	var player_speed_ratio := player_speed / pow(player.SPEED, 2.0)
 	
 	crosshair_lines[0].position = lerp(crosshair_lines[0].position, Vector2(0.0, -player_speed_ratio * CROSSHAIR_SPREAD_DISTANCE), CROSSHAIR_SPEED) # Top
 	crosshair_lines[1].position = lerp(crosshair_lines[1].position, Vector2(0.0, player_speed_ratio * CROSSHAIR_SPREAD_DISTANCE), CROSSHAIR_SPEED) # Down

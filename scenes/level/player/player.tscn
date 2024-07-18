@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cg6b253fifg4g"]
+[gd_scene load_steps=34 format=3 uid="uid://cg6b253fifg4g"]
 
 [ext_resource type="Script" path="res://scripts/level/player/player.gd" id="1_d05mm"]
 [ext_resource type="Script" path="res://scripts/level/player/smooth_camera.gd" id="2_5sklg"]
@@ -9,10 +9,100 @@
 [ext_resource type="PackedScene" uid="uid://dbyxkeya1epo3" path="res://scenes/level/weapons/uzi.tscn" id="7_lncqh"]
 [ext_resource type="PackedScene" uid="uid://2evpa7lake1r" path="res://scenes/level/weapons/rocket_launcher.tscn" id="8_2kdj6"]
 [ext_resource type="PackedScene" uid="uid://d127c3wfowl3y" path="res://scenes/level/weapons/shotgun.tscn" id="9_38ko2"]
+[ext_resource type="AudioStream" uid="uid://dm8tsfnuordct" path="res://assets/audios/footsteps/walk.wav" id="10_pdfrl"]
+[ext_resource type="Script" path="res://scripts/level/player/footstep_sound_player.gd" id="10_r1vaf"]
+[ext_resource type="AudioStream" uid="uid://c7hi6atmd2w67" path="res://assets/audios/footsteps/run.wav" id="11_dcek8"]
+[ext_resource type="Script" path="res://scripts/level/player/states/state_machine.gd" id="12_mleq3"]
+[ext_resource type="Script" path="res://scripts/level/player/states/idle.gd" id="13_28gqb"]
+[ext_resource type="Script" path="res://scripts/level/player/states/fall.gd" id="14_66n63"]
+[ext_resource type="Script" path="res://scripts/level/player/states/walk.gd" id="15_uoaom"]
+[ext_resource type="Script" path="res://scripts/level/player/states/run.gd" id="16_yttop"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ukj58"]
 radius = 0.75
 height = 3.5
+
+[sub_resource type="Animation" id="Animation_ne2yi"]
+resource_name = "idle"
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_cbtug"]
+resource_name = "run"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FootstepSoundPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_run_sound"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_of8iu"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FootstepSoundPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_walk_sound"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hx5m2"]
+_data = {
+"idle": SubResource("Animation_ne2yi"),
+"run": SubResource("Animation_cbtug"),
+"walk": SubResource("Animation_of8iu")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s4jhe"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pcv6m"]
+animation = &"run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_caqud"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_utimx"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_df2rw"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g10gd"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u2lf1"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5ltl3"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i651w"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s3eum"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_166wo"]
+states/idle/node = SubResource("AnimationNodeAnimation_s4jhe")
+states/idle/position = Vector2(334, 33)
+states/run/node = SubResource("AnimationNodeAnimation_pcv6m")
+states/run/position = Vector2(453, 77)
+states/walk/node = SubResource("AnimationNodeAnimation_caqud")
+states/walk/position = Vector2(348, 155)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_utimx"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_df2rw"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_g10gd"), "idle", "run", SubResource("AnimationNodeStateMachineTransition_u2lf1"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_5ltl3"), "run", "walk", SubResource("AnimationNodeStateMachineTransition_i651w"), "walk", "run", SubResource("AnimationNodeStateMachineTransition_s3eum")]
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_d05mm")
@@ -92,3 +182,52 @@ sniper_scene = ExtResource("6_wa77t")
 uzi_scene = ExtResource("7_lncqh")
 rocket_launcher_scene = ExtResource("8_2kdj6")
 shotgun_scene = ExtResource("9_38ko2")
+
+[node name="FootstepSoundPlayer" type="Node3D" parent="."]
+script = ExtResource("10_r1vaf")
+
+[node name="WalkSoundPlayer" type="AudioStreamPlayer3D" parent="FootstepSoundPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+stream = ExtResource("10_pdfrl")
+
+[node name="RunSoundPlayer" type="AudioStreamPlayer3D" parent="FootstepSoundPlayer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+stream = ExtResource("11_dcek8")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
+script = ExtResource("12_mleq3")
+current_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("13_28gqb")
+player = NodePath("../..")
+
+[node name="Fall" type="Node" parent="StateMachine" node_paths=PackedStringArray("footstep_sound_player", "player")]
+script = ExtResource("14_66n63")
+footstep_sound_player = NodePath("../../FootstepSoundPlayer")
+player = NodePath("../..")
+
+[node name="FallTimeTimer" type="Timer" parent="StateMachine/Fall"]
+one_shot = true
+
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("15_uoaom")
+player = NodePath("../..")
+
+[node name="Run" type="Node" parent="StateMachine" node_paths=PackedStringArray("player")]
+script = ExtResource("16_yttop")
+player = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hx5m2")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hx5m2")
+}
+tree_root = SubResource("AnimationNodeStateMachine_166wo")
+anim_player = NodePath("../AnimationPlayer")
+
+[connection signal="timeout" from="StateMachine/Fall/FallTimeTimer" to="StateMachine/Fall" method="_on_fall_time_timer_timeout"]
