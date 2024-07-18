@@ -18,25 +18,25 @@ max_health = 200
 [node name="zombie_mutant" parent="." instance=ExtResource("1_2nfta")]
 
 [node name="Skeleton3D" parent="zombie_mutant/Root" index="0"]
-bones/18/position = Vector3(0.473445, 1.37914, 0.0692263)
-bones/18/rotation = Quaternion(-0.235545, -0.0321713, 0.968815, 0.0698702)
-bones/20/rotation = Quaternion(0.00693994, 0.0306762, -0.0381837, 0.998776)
-bones/23/rotation = Quaternion(0.44709, 0.113234, -0.162349, 0.872314)
-bones/24/rotation = Quaternion(-0.279932, 0.102525, 0.0546574, 0.952963)
-bones/26/rotation = Quaternion(0.436864, 0.275877, 0.63651, -0.572623)
-bones/27/rotation = Quaternion(0.451236, 0.252029, -0.377825, 0.76819)
-bones/28/rotation = Quaternion(0.151953, 0.0124406, 0.0025217, 0.988306)
-bones/29/rotation = Quaternion(0.0405952, 0.675645, 0.0459152, 0.734675)
-bones/37/rotation = Quaternion(0.596865, -0.716658, 0.158745, 0.323965)
-bones/38/rotation = Quaternion(0.759332, 0.543655, -0.0706491, -0.350519)
-bones/39/rotation = Quaternion(-0.0134658, -0.00471077, 0.16039, 0.986951)
-bones/40/rotation = Quaternion(-0.0809442, -0.044198, 0.140383, 0.985793)
-bones/48/rotation = Quaternion(0.924354, 0.143845, 0.0550335, 0.349069)
-bones/49/rotation = Quaternion(0.588479, -0.0470633, 0.170357, 0.788959)
-bones/50/rotation = Quaternion(-0.639076, -0.3373, -0.207634, 0.659316)
-bones/53/rotation = Quaternion(0.987578, -0.111875, -0.104326, 0.0359141)
-bones/54/rotation = Quaternion(0.361539, 0.0876361, -0.113687, 0.921241)
-bones/55/rotation = Quaternion(-0.446268, 0.351218, 0.334569, 0.752033)
+bones/18/position = Vector3(-0.0633172, 1.39049, -0.00696889)
+bones/18/rotation = Quaternion(0.331534, -0.0965537, 0.938466, -0.00670319)
+bones/20/rotation = Quaternion(-0.00609234, -0.00778075, 0.0493133, 0.998735)
+bones/23/rotation = Quaternion(0.390593, -0.0178168, 0.132167, 0.910852)
+bones/24/rotation = Quaternion(-0.238695, -0.157468, -0.067759, 0.955844)
+bones/26/rotation = Quaternion(0.105996, 0.545677, 0.550838, -0.622559)
+bones/27/rotation = Quaternion(0.389014, 0.314184, -0.394631, 0.770859)
+bones/28/rotation = Quaternion(0.329503, 0.0118837, 0.00546812, 0.944064)
+bones/29/rotation = Quaternion(0.0554821, 0.667193, 0.0278407, 0.742294)
+bones/37/rotation = Quaternion(0.664909, -0.620803, 0.408821, 0.0732536)
+bones/38/rotation = Quaternion(0.66335, 0.543657, -0.327459, -0.396453)
+bones/39/rotation = Quaternion(-0.010388, -0.00473601, 0.123732, 0.99225)
+bones/40/rotation = Quaternion(-0.0830049, -0.0898928, -0.0274103, 0.992108)
+bones/48/rotation = Quaternion(0.968979, 0.201264, 0.0928865, 0.109291)
+bones/49/rotation = Quaternion(0.290114, 0.0494755, 0.0149455, 0.955595)
+bones/50/rotation = Quaternion(-0.516792, -0.282377, 0.0355106, 0.807421)
+bones/53/rotation = Quaternion(0.880305, -0.238528, -0.052827, 0.406665)
+bones/54/rotation = Quaternion(0.495992, 0.0508984, -0.27945, 0.820554)
+bones/55/rotation = Quaternion(-0.596199, 0.228926, 0.177719, 0.748703)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
@@ -44,6 +44,8 @@ shape = SubResource("CapsuleShape3D_p0376")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
+
+[connection signal="zombie_die" from="zombie_mutant" to="." method="_on_zombie_die"]
 
 [editable path="zombie_mutant"]
 [editable path="zombie_mutant/FootstepSoundPlayer"]
