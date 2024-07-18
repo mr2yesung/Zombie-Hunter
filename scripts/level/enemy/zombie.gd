@@ -10,7 +10,8 @@ const GAME_OVER_DISTANCE_SQUARED := 7.0
 const MINIMUM_LOOKAT_DISTANCE_SQUARED := 0.0001
 const MAX_HEALTH := 100
 
-@export var walk_speed := 5.0
+# animation length ratio is 5 : 1
+@export var walk_speed := 2.0
 @export var run_speed := 10.0
 @export var animation_tree: AnimationTree
 

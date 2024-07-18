@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cg6b253fifg4g"]
+[gd_scene load_steps=32 format=3 uid="uid://cg6b253fifg4g"]
 
 [ext_resource type="Script" path="res://scripts/level/player/player.gd" id="1_d05mm"]
 [ext_resource type="Script" path="res://scripts/level/player/smooth_camera.gd" id="2_5sklg"]
@@ -9,9 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dbyxkeya1epo3" path="res://scenes/level/weapons/uzi.tscn" id="7_lncqh"]
 [ext_resource type="PackedScene" uid="uid://2evpa7lake1r" path="res://scenes/level/weapons/rocket_launcher.tscn" id="8_2kdj6"]
 [ext_resource type="PackedScene" uid="uid://d127c3wfowl3y" path="res://scenes/level/weapons/shotgun.tscn" id="9_38ko2"]
-[ext_resource type="AudioStream" uid="uid://dm8tsfnuordct" path="res://assets/audios/footsteps/walk.wav" id="10_pdfrl"]
-[ext_resource type="Script" path="res://scripts/level/player/footstep_sound_player.gd" id="10_r1vaf"]
-[ext_resource type="AudioStream" uid="uid://c7hi6atmd2w67" path="res://assets/audios/footsteps/run.wav" id="11_dcek8"]
+[ext_resource type="PackedScene" uid="uid://chdf1lvbpujbd" path="res://scenes/level/sounds/footstep_sound_player.tscn" id="10_qx8s1"]
 [ext_resource type="Script" path="res://scripts/level/player/states/state_machine.gd" id="12_mleq3"]
 [ext_resource type="Script" path="res://scripts/level/player/states/idle.gd" id="13_28gqb"]
 [ext_resource type="Script" path="res://scripts/level/player/states/fall.gd" id="14_66n63"]
@@ -183,16 +181,7 @@ uzi_scene = ExtResource("7_lncqh")
 rocket_launcher_scene = ExtResource("8_2kdj6")
 shotgun_scene = ExtResource("9_38ko2")
 
-[node name="FootstepSoundPlayer" type="Node3D" parent="."]
-script = ExtResource("10_r1vaf")
-
-[node name="WalkSoundPlayer" type="AudioStreamPlayer3D" parent="FootstepSoundPlayer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
-stream = ExtResource("10_pdfrl")
-
-[node name="RunSoundPlayer" type="AudioStreamPlayer3D" parent="FootstepSoundPlayer"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
-stream = ExtResource("11_dcek8")
+[node name="FootstepSoundPlayer" parent="." instance=ExtResource("10_qx8s1")]
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("12_mleq3")
