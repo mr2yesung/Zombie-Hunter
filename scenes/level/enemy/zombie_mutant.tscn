@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://jxy3li3fvkh6"]
+
+[ext_resource type="PackedScene" uid="uid://dk1fjwljyo68k" path="res://scenes/level/enemy/zombie_mutant_mesh.tscn" id="1_2nfta"]
+[ext_resource type="Script" path="res://scripts/level/enemy/zombie.gd" id="1_assml"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_p0376"]
+radius = 0.75
+height = 3.5
+
+[node name="ZombieMutant" type="CharacterBody3D" node_paths=PackedStringArray("animation_tree")]
+script = ExtResource("1_assml")
+walk_speed = 10.0
+run_speed = 20.0
+aggro_range_squared = 1100.0
+animation_tree = NodePath("zombie_mutant/AnimationTree")
+max_health = 200
+
+[node name="zombie_mutant" parent="." instance=ExtResource("1_2nfta")]
+
+[node name="Skeleton3D" parent="zombie_mutant/Root" index="0"]
+bones/18/position = Vector3(0.473445, 1.37914, 0.0692263)
+bones/18/rotation = Quaternion(-0.235545, -0.0321713, 0.968815, 0.0698702)
+bones/20/rotation = Quaternion(0.00693994, 0.0306762, -0.0381837, 0.998776)
+bones/23/rotation = Quaternion(0.44709, 0.113234, -0.162349, 0.872314)
+bones/24/rotation = Quaternion(-0.279932, 0.102525, 0.0546574, 0.952963)
+bones/26/rotation = Quaternion(0.436864, 0.275877, 0.63651, -0.572623)
+bones/27/rotation = Quaternion(0.451236, 0.252029, -0.377825, 0.76819)
+bones/28/rotation = Quaternion(0.151953, 0.0124406, 0.0025217, 0.988306)
+bones/29/rotation = Quaternion(0.0405952, 0.675645, 0.0459152, 0.734675)
+bones/37/rotation = Quaternion(0.596865, -0.716658, 0.158745, 0.323965)
+bones/38/rotation = Quaternion(0.759332, 0.543655, -0.0706491, -0.350519)
+bones/39/rotation = Quaternion(-0.0134658, -0.00471077, 0.16039, 0.986951)
+bones/40/rotation = Quaternion(-0.0809442, -0.044198, 0.140383, 0.985793)
+bones/48/rotation = Quaternion(0.924354, 0.143845, 0.0550335, 0.349069)
+bones/49/rotation = Quaternion(0.588479, -0.0470633, 0.170357, 0.788959)
+bones/50/rotation = Quaternion(-0.639076, -0.3373, -0.207634, 0.659316)
+bones/53/rotation = Quaternion(0.987578, -0.111875, -0.104326, 0.0359141)
+bones/54/rotation = Quaternion(0.361539, 0.0876361, -0.113687, 0.921241)
+bones/55/rotation = Quaternion(-0.446268, 0.351218, 0.334569, 0.752033)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
+shape = SubResource("CapsuleShape3D_p0376")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
+
+[editable path="zombie_mutant"]
+[editable path="zombie_mutant/FootstepSoundPlayer"]
