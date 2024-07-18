@@ -13,14 +13,16 @@ extends Weapon
 
 
 func _process(delta: float) -> void:
-	if cooldown_timer.is_stopped():
-		if Input.is_action_just_pressed("fire"):
-			_shoot()
+	if Input.is_action_just_pressed("fire"):
+		_shoot()
 	
 	recover_recoil(delta)
 
 
 func _shoot() -> void:
+	if not cooldown_timer.is_stopped():
+		return
+	
 	fire()
 	
 	for i in particle_per_ammo:
