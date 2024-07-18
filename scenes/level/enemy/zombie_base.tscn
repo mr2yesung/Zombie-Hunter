@@ -7,31 +7,32 @@
 radius = 0.75
 height = 3.5
 
-[node name="ZombieBase" type="CharacterBody3D"]
+[node name="ZombieBase" type="CharacterBody3D" node_paths=PackedStringArray("animation_tree")]
 script = ExtResource("1_0vq0c")
+animation_tree = NodePath("zombie_base/AnimationTree")
 
 [node name="zombie_base" parent="." instance=ExtResource("1_5ggdu")]
 
 [node name="Skeleton3D" parent="zombie_base/Root" index="0"]
-bones/18/position = Vector3(0.051789, 1.34024, 0.0298931)
-bones/18/rotation = Quaternion(0.240483, -0.100459, 0.965357, 0.012749)
-bones/20/rotation = Quaternion(0.0135317, 0.00301414, 0.0394727, 0.999125)
-bones/23/rotation = Quaternion(0.396274, 0.0433987, 0.0313149, 0.916571)
-bones/24/rotation = Quaternion(-0.318498, -0.0885104, 0.168285, 0.928658)
-bones/26/rotation = Quaternion(0.189456, 0.452948, 0.554043, -0.672296)
-bones/27/rotation = Quaternion(0.423658, 0.275208, -0.370309, 0.779516)
-bones/28/rotation = Quaternion(0.397641, 0.0115486, 0.00659886, 0.917445)
-bones/29/rotation = Quaternion(0.048245, 0.669995, 0.036174, 0.739913)
-bones/37/rotation = Quaternion(0.623062, -0.705312, 0.305652, 0.144593)
-bones/38/rotation = Quaternion(0.616837, 0.57467, -0.304525, -0.443319)
-bones/39/rotation = Quaternion(-0.00895195, -0.00474558, 0.106626, 0.994248)
-bones/40/rotation = Quaternion(-0.0594202, 0.039554, 0.054347, 0.995968)
-bones/48/rotation = Quaternion(0.951858, 0.258458, 0.0519444, 0.156421)
-bones/49/rotation = Quaternion(0.355891, 0.0970154, 0.10011, 0.924071)
-bones/50/rotation = Quaternion(-0.692042, -0.168449, 0.059435, 0.699407)
-bones/53/rotation = Quaternion(0.827304, -0.265396, -0.0736705, 0.489598)
-bones/54/rotation = Quaternion(0.471654, -0.0152124, -0.256245, 0.843593)
-bones/55/rotation = Quaternion(-0.498241, 0.254524, 0.121111, 0.819942)
+bones/18/position = Vector3(-0.0240603, 1.32917, 0.0127499)
+bones/18/rotation = Quaternion(0.304302, -0.111398, 0.945955, 0.0126682)
+bones/20/rotation = Quaternion(0.0063147, 0.0035036, 0.0554681, 0.998434)
+bones/23/rotation = Quaternion(0.372661, 0.0296398, 0.0610471, 0.925483)
+bones/24/rotation = Quaternion(-0.311656, -0.183068, 0.0434454, 0.93138)
+bones/26/rotation = Quaternion(0.161188, 0.475256, 0.557204, -0.661569)
+bones/27/rotation = Quaternion(0.395713, 0.288885, -0.372652, 0.788091)
+bones/28/rotation = Quaternion(0.383806, 0.0116227, 0.00636924, 0.923319)
+bones/29/rotation = Quaternion(0.0498544, 0.669893, 0.0343073, 0.739987)
+bones/37/rotation = Quaternion(0.665347, -0.657425, 0.333307, 0.118372)
+bones/38/rotation = Quaternion(0.60306, 0.568194, -0.329964, -0.452325)
+bones/39/rotation = Quaternion(-0.00882568, -0.00474634, 0.105122, 0.994409)
+bones/40/rotation = Quaternion(-0.0476644, 0.0191185, 0.0406087, 0.997854)
+bones/48/rotation = Quaternion(0.953152, 0.249607, 0.0861579, 0.147561)
+bones/49/rotation = Quaternion(0.298018, 0.10439, 0.00824817, 0.948799)
+bones/50/rotation = Quaternion(-0.659657, -0.156264, 0.105795, 0.72749)
+bones/53/rotation = Quaternion(0.826764, -0.269977, -0.0595209, 0.489929)
+bones/54/rotation = Quaternion(0.527951, 0.029741, -0.286662, 0.798879)
+bones/55/rotation = Quaternion(-0.561247, 0.243831, 0.144632, 0.77758)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
