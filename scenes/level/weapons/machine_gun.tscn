@@ -7,7 +7,7 @@
 [node name="MachineGun" node_paths=PackedStringArray("weapon_mesh", "muzzle_flash") instance=ExtResource("1_t4o3i")]
 automatic = true
 weapon_mesh = NodePath("machine_gun")
-damage = 20.0
+damage = 20
 magazine_capacity = 30
 fire_rate = 14.0
 recoil = 0.05

@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://kydh715ahbm8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwjtn"]
+albedo_color = Color(0.580392, 0, 0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qa3jj"]
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+scale_min = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_p5als"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="Animation" id="Animation_nnfvy"]
+resource_name = "blood_splatter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_kffev"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_na0xl"]
+_data = {
+"RESET": SubResource("Animation_kffev"),
+"blood_splatter": SubResource("Animation_nnfvy")
+}
+
+[node name="Bloods" type="GPUParticles3D"]
+top_level = true
+material_override = SubResource("StandardMaterial3D_nwjtn")
+cast_shadow = 0
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_qa3jj")
+draw_pass_1 = SubResource("BoxMesh_p5als")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_na0xl")
+}
+autoplay = "blood_splatter"

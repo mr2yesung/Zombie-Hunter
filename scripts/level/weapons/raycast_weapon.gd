@@ -3,6 +3,7 @@ extends Weapon
 
 @export var automatic: bool
 @export var spark_scene: PackedScene
+@export var blood_scene: PackedScene
 
 @onready var cooldown_timer: Timer = $CooldownTimer
 @onready var raycast_3d: RayCast3D = $RayCast3D
@@ -26,8 +27,14 @@ func _shoot() -> void:
 	
 	var collider := raycast_3d.get_collider()
 	if raycast_3d.is_colliding():
-		# check if collider is enemy
-		# if enemy, apply damage and spawn blood particle instead of spark
-		var spark := spark_scene.instantiate()
-		add_child(spark)
-		spark.global_position = raycast_3d.get_collision_point()
+		if collider is Enemy:
+			collider.health -= damage
+			spawn_particle(blood_scene)
+		else:
+			spawn_particle(spark_scene)
+
+
+func spawn_particle(particle_scene: PackedScene) -> void:
+	var particle := particle_scene.instantiate()
+	add_child(particle)
+	particle.global_position = raycast_3d.get_collision_point()

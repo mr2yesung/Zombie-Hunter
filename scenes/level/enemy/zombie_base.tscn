@@ -14,25 +14,25 @@ animation_tree = NodePath("zombie_base/AnimationTree")
 [node name="zombie_base" parent="." instance=ExtResource("1_5ggdu")]
 
 [node name="Skeleton3D" parent="zombie_base/Root" index="0"]
-bones/18/position = Vector3(-0.0316412, 1.33124, 0.0111625)
-bones/18/rotation = Quaternion(0.309271, -0.11412, 0.94403, 0.0116063)
-bones/20/rotation = Quaternion(0.00455628, 0.00314045, 0.0551936, 0.99846)
-bones/23/rotation = Quaternion(0.373139, 0.027474, 0.0684897, 0.924836)
-bones/24/rotation = Quaternion(-0.307073, -0.180752, 0.03567, 0.933682)
-bones/26/rotation = Quaternion(0.159916, 0.481011, 0.555264, -0.659346)
-bones/27/rotation = Quaternion(0.402876, 0.301303, -0.365598, 0.7831)
-bones/28/rotation = Quaternion(0.380603, 0.0116394, 0.00631614, 0.924644)
-bones/29/rotation = Quaternion(0.0528679, 0.668048, 0.0306184, 0.741606)
-bones/37/rotation = Quaternion(0.670356, -0.650193, 0.337396, 0.11847)
-bones/38/rotation = Quaternion(0.605017, 0.567354, -0.328822, -0.451598)
-bones/39/rotation = Quaternion(-0.00881049, -0.00474644, 0.104941, 0.994428)
-bones/40/rotation = Quaternion(-0.0448438, 0.0147882, 0.0384575, 0.998144)
-bones/48/rotation = Quaternion(0.95338, 0.24756, 0.0882642, 0.148288)
-bones/49/rotation = Quaternion(0.296291, 0.103905, 0.00635961, 0.949408)
-bones/50/rotation = Quaternion(-0.646741, -0.163285, 0.101788, 0.73804)
-bones/53/rotation = Quaternion(0.827912, -0.268968, -0.0580755, 0.488718)
-bones/54/rotation = Quaternion(0.530318, 0.0340043, -0.288518, 0.79647)
-bones/55/rotation = Quaternion(-0.566999, 0.241542, 0.149612, 0.773166)
+bones/18/position = Vector3(0.117782, 1.31406, 0.152059)
+bones/18/rotation = Quaternion(0.294432, -0.0908198, 0.951269, -0.0122065)
+bones/20/rotation = Quaternion(0.00820654, 0.0013821, 0.0425533, 0.99906)
+bones/23/rotation = Quaternion(0.387634, 0.0273595, 0.070709, 0.91869)
+bones/24/rotation = Quaternion(-0.353496, -0.108621, -0.0057607, 0.92909)
+bones/26/rotation = Quaternion(0.150502, 0.491113, 0.502172, -0.695688)
+bones/27/rotation = Quaternion(0.407361, 0.274022, -0.398064, 0.774928)
+bones/28/rotation = Quaternion(0.245638, 0.0122012, 0.00407633, 0.969276)
+bones/29/rotation = Quaternion(0.0451558, 0.673283, 0.0403222, 0.736902)
+bones/37/rotation = Quaternion(0.666722, -0.656987, 0.337547, 0.0995546)
+bones/38/rotation = Quaternion(0.623624, 0.539317, -0.292181, -0.484624)
+bones/39/rotation = Quaternion(-0.00906313, -0.00474487, 0.107951, 0.994104)
+bones/40/rotation = Quaternion(0.12833, 0.0958119, 0.0964328, 0.982371)
+bones/48/rotation = Quaternion(0.931018, 0.215297, 0.0967514, 0.278374)
+bones/49/rotation = Quaternion(0.500013, 0.081861, 0.170927, 0.845027)
+bones/50/rotation = Quaternion(-0.691196, -0.158785, 0.00090141, 0.705006)
+bones/53/rotation = Quaternion(0.818483, -0.34529, -0.0688154, 0.454009)
+bones/54/rotation = Quaternion(0.45966, -0.019639, -0.210048, 0.862674)
+bones/55/rotation = Quaternion(-0.465739, 0.291091, 0.0233629, 0.835349)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
@@ -40,5 +40,7 @@ shape = SubResource("CapsuleShape3D_13ehg")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
+
+[connection signal="zombie_die" from="zombie_base" to="." method="_on_zombie_die"]
 
 [editable path="zombie_base"]
