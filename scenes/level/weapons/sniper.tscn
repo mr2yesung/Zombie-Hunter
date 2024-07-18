@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bgqa4ms1kod6a" path="res://scenes/level/weapons/raycast_weapon.tscn" id="1_o71qa"]
 [ext_resource type="PackedScene" uid="uid://nx148oecy51i" path="res://assets/meshes/weapons/sniper.glb" id="2_yep0k"]
-[ext_resource type="PackedScene" uid="uid://m3g8c17q50kf" path="res://scenes/level/weapons/muzzle_flash_small.tscn" id="3_xq48i"]
+[ext_resource type="PackedScene" uid="uid://r8d1s46hcwpb" path="res://scenes/level/weapons/muzzle_flash_large.tscn" id="3_ep83p"]
 
 [node name="Sniper" node_paths=PackedStringArray("weapon_mesh", "muzzle_flash") instance=ExtResource("1_o71qa")]
 weapon_mesh = NodePath("sniper")
@@ -10,11 +10,11 @@ damage = 150
 magazine_capacity = 7
 fire_rate = 1.0
 recoil = 0.2
-muzzle_flash = NodePath("MuzzleFlashSmall")
+muzzle_flash = NodePath("MuzzleFlashLarge")
 weapon_type = 3
 
 [node name="sniper" parent="." index="1" instance=ExtResource("2_yep0k")]
 transform = Transform3D(-4, 0, 3.49691e-07, 0, 4, 0, -3.49691e-07, 0, -4, 0.143625, -0.0557357, -0.511454)
 
-[node name="MuzzleFlashSmall" parent="." index="3" instance=ExtResource("3_xq48i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.139653, -0.0420723, -0.830027)
+[node name="MuzzleFlashLarge" parent="." index="3" instance=ExtResource("3_ep83p")]
+layers = 2
