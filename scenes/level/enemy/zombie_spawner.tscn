@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b23soew0a2v6g"]
+
+[ext_resource type="Script" path="res://scripts/level/enemy/zombie_spawner.gd" id="1_20ltx"]
+[ext_resource type="PackedScene" uid="uid://do1sbntbwxk3k" path="res://scenes/level/enemy/zombie_base.tscn" id="2_t18mo"]
+[ext_resource type="PackedScene" uid="uid://jxy3li3fvkh6" path="res://scenes/level/enemy/zombie_mutant.tscn" id="3_bpka2"]
+
+[node name="ZombieSpawner" type="Node3D"]
+script = ExtResource("1_20ltx")
+zombie_base = ExtResource("2_t18mo")
+zombie_mutant = ExtResource("3_bpka2")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="SpawnPosition" type="Marker3D" parent="."]
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
