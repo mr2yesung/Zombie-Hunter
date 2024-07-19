@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bidijh5m1p5aj"]
+
+[ext_resource type="PackedScene" uid="uid://birna1higs33" path="res://assets/meshes/backgrounds/target.glb" id="1_leyql"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bqbs6"]
+size = Vector3(1, 2.1, 0.1)
+
+[node name="target" instance=ExtResource("1_leyql")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+shape = SubResource("BoxShape3D_bqbs6")
