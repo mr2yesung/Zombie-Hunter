@@ -33,7 +33,6 @@ func _on_select_to_main() -> void:
 
 
 func _on_start_game() -> void:
-	# TODO: loading screen?
 	ScoreManager.reset_game()
 	
 	GameSceneManager.move_to_level()

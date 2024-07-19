@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqnig367smxtl"]
+
+[ext_resource type="Script" path="res://scripts/loading_screen.gd" id="1_c6ds3"]
+[ext_resource type="PackedScene" uid="uid://q3iw0t4spey3" path="res://scenes/main_menu/title.tscn" id="1_f77lt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_12esw"]
+font_size = 64
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LoadingScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c6ds3")
+level_scene_path = "res://scenes/level/level.tscn"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.196078, 0.196078, 0.196078, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="Title" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_f77lt")]
+layout_mode = 2
+text = "[center][wave amp=50 freq=2][i] Loading ... [/i][/wave][/center]"
+
+[node name="ProgressLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_12esw")
+horizontal_alignment = 1
