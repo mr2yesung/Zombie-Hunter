@@ -25,6 +25,7 @@ var stamina: float = MAX_STAMINA:
 @onready var ammo_manager: Node = $AmmoManager
 @onready var game_over_screen: Control = $GameOverScreen
 @onready var death_sound_player: AudioStreamPlayer = $DeathSoundPlayer
+@onready var pause_screen: Control = $PauseScreen
 
 
 func _ready() -> void:
@@ -58,9 +59,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouse_motion = -event.relative * mouse_sensitivity
 	
-	# for test purpose
-	if event.is_action_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if event.is_action_pressed("pause"):
+		pause_screen.pause_game()
 
 
 func get_movement_direction() -> Vector3:
