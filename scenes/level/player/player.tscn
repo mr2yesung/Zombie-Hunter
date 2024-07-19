@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/level/player/smooth_camera.gd" id="2_5sklg"]
 [ext_resource type="PackedScene" uid="uid://dq4yxt43g5als" path="res://scenes/level/weapons/machine_gun.tscn" id="3_1npvi"]
 [ext_resource type="Script" path="res://scripts/level/player/crosshair.gd" id="3_r2m71"]
-[ext_resource type="Script" path="res://scenes/level/player/score_label.gd" id="4_3q2sk"]
+[ext_resource type="Script" path="res://scripts/level/player/score_label.gd" id="4_3q2sk"]
 [ext_resource type="Script" path="res://scripts/level/player/weapon_spawner.gd" id="5_nwx4e"]
 [ext_resource type="PackedScene" uid="uid://8wqw368dp1ho" path="res://scenes/level/weapons/sniper.tscn" id="6_wa77t"]
 [ext_resource type="PackedScene" uid="uid://dbyxkeya1epo3" path="res://scenes/level/weapons/uzi.tscn" id="7_lncqh"]
