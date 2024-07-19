@@ -14,7 +14,9 @@ config/name="Zombie Hunter"
 run/main_scene="res://scenes/main_menu/main_menu.tscn"
 config/use_custom_user_dir=true
 config/features=PackedStringArray("4.2", "Forward Plus")
+boot_splash/image="res://assets/images/bootsplash.png"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=2000
 
 [autoload]
 
