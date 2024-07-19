@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cmjx0hmdwe01"]
+[gd_scene load_steps=15 format=3 uid="uid://cmjx0hmdwe01"]
 
 [ext_resource type="PackedScene" uid="uid://i0ynvkdoahlc" path="res://scenes/level/props/wall.tscn" id="1_g26x6"]
 [ext_resource type="PackedScene" uid="uid://cg6b253fifg4g" path="res://scenes/level/player/player.tscn" id="2_7mobx"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://mp30rd8ldxmx" path="res://scenes/level/props/door_broken.tscn" id="4_d6qec"]
 [ext_resource type="PackedScene" uid="uid://coek3w2ifjpwx" path="res://scenes/level/props/fence.tscn" id="5_o6fgd"]
 [ext_resource type="PackedScene" uid="uid://c3wfk3gv5533p" path="res://scenes/level/props/floor.tscn" id="6_urlj0"]
+[ext_resource type="PackedScene" uid="uid://c6ttemuadefn3" path="res://scenes/level/weapons/ammo_pickup.tscn" id="8_0psvc"]
 [ext_resource type="PackedScene" uid="uid://jxy3li3fvkh6" path="res://scenes/level/enemy/zombie_mutant.tscn" id="9_gdtk6"]
 [ext_resource type="PackedScene" uid="uid://do1sbntbwxk3k" path="res://scenes/level/enemy/zombie_base.tscn" id="9_gly7t"]
 
@@ -96,6 +97,9 @@ transform = Transform3D(1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, 0, 10.7422
 
 [node name="floor2" parent="NavigationRegion3D/Background" instance=ExtResource("6_urlj0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.2219, 8.25672)
+
+[node name="AmmoPickup" parent="NavigationRegion3D/Background" instance=ExtResource("8_0psvc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.02185, 0.2, -11.8746)
 
 [node name="ZombieBase" parent="." instance=ExtResource("9_gly7t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 8.9407e-08, -29)

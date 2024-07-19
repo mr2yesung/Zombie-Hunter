@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cg6b253fifg4g"]
+[gd_scene load_steps=35 format=3 uid="uid://cg6b253fifg4g"]
 
 [ext_resource type="Script" path="res://scripts/level/player/player.gd" id="1_d05mm"]
 [ext_resource type="Script" path="res://scripts/level/player/smooth_camera.gd" id="2_5sklg"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scripts/level/player/states/idle.gd" id="13_28gqb"]
 [ext_resource type="Script" path="res://scripts/level/player/states/fall.gd" id="14_66n63"]
 [ext_resource type="Script" path="res://scripts/level/player/states/walk.gd" id="15_uoaom"]
+[ext_resource type="Script" path="res://scripts/level/player/ammo_manager.gd" id="16_kmvxl"]
 [ext_resource type="Script" path="res://scripts/level/player/states/run.gd" id="16_yttop"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ukj58"]
@@ -272,5 +273,9 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_166wo")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="AmmoManager" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("16_kmvxl")
+player = NodePath("..")
 
 [connection signal="timeout" from="StateMachine/Fall/FallTimeTimer" to="StateMachine/Fall" method="_on_fall_time_timer_timeout"]

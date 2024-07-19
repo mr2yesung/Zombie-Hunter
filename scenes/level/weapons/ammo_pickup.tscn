@@ -1,0 +1,92 @@
+[gd_scene load_steps=13 format=3 uid="uid://c6ttemuadefn3"]
+
+[ext_resource type="Script" path="res://scripts/level/weapons/ammo_pickup.gd" id="1_qlqbm"]
+[ext_resource type="PackedScene" uid="uid://twkyyge7mkkx" path="res://assets/meshes/weapons/ammos/ammo_machine_gun.glb" id="2_c22e7"]
+[ext_resource type="AudioStream" uid="uid://cl0hnc04u5brn" path="res://assets/audios/guns/ammo_pickup.wav" id="2_j3w6s"]
+[ext_resource type="PackedScene" uid="uid://dsqvutnq1avle" path="res://assets/meshes/weapons/ammos/ammo_rocket_launcher.glb" id="3_dblkg"]
+[ext_resource type="PackedScene" uid="uid://kbvx5mlaesuf" path="res://assets/meshes/weapons/ammos/ammo_sniper.glb" id="4_5he0x"]
+[ext_resource type="PackedScene" uid="uid://b8jm06iqgbxoy" path="res://assets/meshes/weapons/ammos/ammo_shotgun.glb" id="5_lrbdt"]
+[ext_resource type="PackedScene" uid="uid://dsw8117nr1e2k" path="res://assets/meshes/weapons/ammos/ammo_uzi.glb" id="6_685k5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0f755"]
+size = Vector3(3, 3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jcq4o"]
+metallic = 1.0
+emission_enabled = true
+emission = Color(0.301961, 0.435294, 0.211765, 1)
+
+[sub_resource type="Animation" id="Animation_5852g"]
+resource_name = "ammo_floating"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AmmoMesh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(-2, -2, -2),
+"update": 0,
+"values": [Vector3(0, 1.8, 0), Vector3(0, 1.2, 0), Vector3(0, 1.8, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fb2ci"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AmmoMesh:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.8, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iytk6"]
+_data = {
+"RESET": SubResource("Animation_fb2ci"),
+"ammo_floating": SubResource("Animation_5852g")
+}
+
+[node name="AmmoPickup" type="Area3D"]
+script = ExtResource("1_qlqbm")
+ammo_machine_gun = ExtResource("2_c22e7")
+ammo_rocket_launcher = ExtResource("3_dblkg")
+ammo_sniper = ExtResource("4_5he0x")
+ammo_shotgun = ExtResource("5_lrbdt")
+ammo_uzi = ExtResource("6_685k5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("BoxShape3D_0f755")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+use_collision = true
+size = Vector3(3, 0.2, 3)
+material = SubResource("StandardMaterial3D_jcq4o")
+
+[node name="AmmoMesh" type="Node3D" parent="."]
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 1.8, 0)
+
+[node name="SupplyCooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="PickupSoundPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_j3w6s")
+volume_db = 20.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iytk6")
+}
+autoplay = "ammo_floating"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="SupplyCooldownTimer" to="." method="_on_supply_cooldown_timer_timeout"]

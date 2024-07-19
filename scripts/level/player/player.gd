@@ -22,10 +22,13 @@ var stamina: float = MAX_STAMINA:
 @onready var playback: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
 @onready var stamina_bar: ProgressBar = $StatsUI/StaminaBarMargin/StaminaBar
 @onready var ammo_label: Label = $StatsUI/AmmoMargin/AmmoLabel
+@onready var ammo_manager: Node = $AmmoManager
 
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	update_label()
 
 
 func _process(_delta: float) -> void:
@@ -91,3 +94,7 @@ func use_stamina(delta: float) -> void:
 
 func jump() -> void:
 	velocity.y = JUMP_VELOCITY
+
+
+func update_label() -> void:
+	ammo_label.text = str(ammo_manager.current_ammo) + " / " + str(ammo_manager.remainder_ammo)

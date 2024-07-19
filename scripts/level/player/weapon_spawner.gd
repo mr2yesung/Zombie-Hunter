@@ -3,6 +3,8 @@ extends Node
 
 @export var weapon_parent_camera: Camera3D
 
+var gun: Weapon
+
 @export var machine_gun_scene: PackedScene
 @export var sniper_scene: PackedScene
 @export var uzi_scene: PackedScene
@@ -11,7 +13,7 @@ extends Node
 
 
 func _ready() -> void:
-	var gun := instantiate_weapon(WeaponManager.player_main_weapon)
+	gun = instantiate_weapon(WeaponManager.player_main_weapon) as Weapon
 	weapon_parent_camera.add_child(gun)
 
 
