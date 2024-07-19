@@ -56,9 +56,7 @@ func _physics_process(delta: float) -> void:
 	
 	if not dead:
 		if distance <= GAME_OVER_DISTANCE_SQUARED:
-			# TODO: add game over
-			#print("player died")
-			pass
+			player.player_die()
 		
 		if not provoked and distance <= aggro_range_squared:
 			provoke_zombie()

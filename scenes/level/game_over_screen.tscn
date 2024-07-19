@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://da7tyly3wh1ig"]
+
+[ext_resource type="Script" path="res://scripts/level/game_over_screen.gd" id="1_eheai"]
+[ext_resource type="Theme" uid="uid://codxo4j8fmbmi" path="res://resources/uis/theme_button_blue.tres" id="1_srru6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pnul1"]
+font_size = 64
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GameOverScreen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eheai")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.592448, 2.20198e-06, 4.33177e-07, 0.392157)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme = ExtResource("1_srru6")
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "You Died"
+label_settings = SubResource("LabelSettings_pnul1")
+horizontal_alignment = 1
+
+[node name="MenuButton" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Go Back"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

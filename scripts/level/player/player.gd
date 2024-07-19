@@ -23,6 +23,7 @@ var stamina: float = MAX_STAMINA:
 @onready var stamina_bar: ProgressBar = $StatsUI/StaminaBarMargin/StaminaBar
 @onready var ammo_label: Label = $StatsUI/AmmoMargin/AmmoLabel
 @onready var ammo_manager: Node = $AmmoManager
+@onready var game_over_screen: Control = $GameOverScreen
 
 
 func _ready() -> void:
@@ -98,3 +99,8 @@ func jump() -> void:
 
 func update_label() -> void:
 	ammo_label.text = str(ammo_manager.current_ammo) + " / " + str(ammo_manager.remainder_ammo)
+
+
+func player_die() -> void:
+	# add player die sound
+	game_over_screen.game_over()

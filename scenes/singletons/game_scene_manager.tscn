@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo0qobr01oguj"]
+
+[ext_resource type="Script" path="res://scripts/singletons/game_scene_manager.gd" id="1_hg54p"]
+[ext_resource type="PackedScene" uid="uid://d1j2ue4y0osoe" path="res://scenes/main_menu/main_menu.tscn" id="2_7t2nx"]
+[ext_resource type="PackedScene" uid="uid://cmjx0hmdwe01" path="res://scenes/level/level.tscn" id="3_44810"]
+
+[node name="GameSceneManager" type="Node"]
+script = ExtResource("1_hg54p")
+main_menu_scene = ExtResource("2_7t2nx")
+level_scene = ExtResource("3_44810")

@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 AudioPlayer="*res://scenes/singletons/audio_player.tscn"
 OptionsManager="*res://scripts/singletons/options_manager.gd"
 WeaponManager="*res://scripts/singletons/weapon_manager.gd"
+GameSceneManager="*res://scenes/singletons/game_scene_manager.tscn"
 
 [display]
 

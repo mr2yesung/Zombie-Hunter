@@ -1,9 +1,6 @@
 extends Node3D
 
 
-## Level of the game player will play on
-@export var level: PackedScene
-
 @onready var main_screen: Control = $MainScreen
 @onready var options_screen: Control = $OptionsScreen
 @onready var weapon_select_screen: Control = $WeaponSelectScreen
@@ -40,4 +37,4 @@ func _on_start_game() -> void:
 	printt("game start", WeaponManager.player_main_weapon)
 	# TODO: loading screen?
 	# TODO: loop background music only to menu scene?
-	get_tree().change_scene_to_packed(level)
+	GameSceneManager.move_to_level()

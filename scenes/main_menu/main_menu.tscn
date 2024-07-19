@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://d1j2ue4y0osoe"]
+[gd_scene load_steps=13 format=3 uid="uid://d1j2ue4y0osoe"]
 
 [ext_resource type="PackedScene" uid="uid://i38gtgp55q0g" path="res://scenes/main_menu/main_screen.tscn" id="1_2gpgf"]
 [ext_resource type="Script" path="res://scripts/main_menu/main_menu.gd" id="1_3ukpw"]
 [ext_resource type="PackedScene" uid="uid://d01n7u75kipxc" path="res://scenes/main_menu/options_screen.tscn" id="2_ccmwa"]
-[ext_resource type="PackedScene" uid="uid://cmjx0hmdwe01" path="res://scenes/level/level.tscn" id="2_hosds"]
 [ext_resource type="PackedScene" uid="uid://cdchu1efn318g" path="res://scenes/main_menu/weapon_select_screen.tscn" id="4_0nou5"]
 [ext_resource type="PackedScene" uid="uid://bopg1wlg80q6b" path="res://scenes/main_menu/zombie_base_idle.tscn" id="6_owekx"]
 [ext_resource type="PackedScene" uid="uid://beawrv3oy2kae" path="res://assets/meshes/backgrounds/wall_door.glb" id="7_5hsf7"]
@@ -28,7 +27,6 @@ glow_enabled = true
 
 [node name="MainMenu" type="Node3D"]
 script = ExtResource("1_3ukpw")
-level = ExtResource("2_hosds")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_af4x1")
