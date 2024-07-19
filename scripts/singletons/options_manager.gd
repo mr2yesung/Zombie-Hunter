@@ -16,6 +16,9 @@ const RESOLUTIONS := [
 	Vector2i(2560, 1440), # 2560x1440
 ]
 
+const MIN_SENSITIVITY := 0.0005
+const MAX_SENSITIVITY := 0.005
+
 var anti_aliasing := RenderingServer.VIEWPORT_MSAA_DISABLED:
 	set(value):
 		anti_aliasing = value
@@ -56,6 +59,17 @@ var vsync_enabled := true:
 		else:
 			DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
 
+var mouse_sensitivity := 0.001:
+	set(value):
+		mouse_sensitivity = clampf(value, MIN_SENSITIVITY, MAX_SENSITIVITY)
+
+# unit in db
+var volume := {
+	0: 0.0, # Master
+	1: 0.0, # music
+	2: 0.0, # sfx
+}
+
 
 func _ready() -> void:
 	load_settings()
@@ -80,6 +94,13 @@ func load_settings() -> void:
 			
 			if value.has("VSync") and typeof(value["VSync"]) == TYPE_BOOL:
 				vsync_enabled = value["VSync"]
+			
+			if value.has("MouseSensitivity") and typeof(value["MouseSensitivity"]) == TYPE_FLOAT:
+				mouse_sensitivity = value["MouseSensitivity"]
+			
+			if value.has("Volume") and typeof(value["Volume"]) == TYPE_DICTIONARY:
+				for index in value["Volume"].keys():
+					set_volume(index, value["Volume"].get(index))
 		file.close()
 
 
@@ -90,6 +111,8 @@ func save_settings() -> void:
 		"WindowMode": window_mode,
 		"Resolution": resolution,
 		"VSync": vsync_enabled,
+		"MouseSensitivity": mouse_sensitivity,
+		"Volume": volume,
 	}
 	
 	var file := FileAccess.open(FILE_PATH, FileAccess.WRITE)
@@ -123,3 +146,9 @@ func center_window() -> void:
 	var screen_center := DisplayServer.screen_get_position() + DisplayServer.screen_get_size() / 2
 	var window_size := get_tree().root.get_size_with_decorations()
 	get_tree().root.position = screen_center - window_size / 2
+
+
+func set_volume(bus_index: int, db: float) -> void:
+	if volume.keys().has(bus_index):
+		volume[bus_index] = db
+		AudioServer.set_bus_volume_db(bus_index, db)

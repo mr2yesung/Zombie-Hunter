@@ -288,5 +288,6 @@ player = NodePath("..")
 [node name="DeathSoundPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("18_q41w1")
+bus = &"sfx"
 
 [connection signal="timeout" from="StateMachine/Fall/FallTimeTimer" to="StateMachine/Fall" method="_on_fall_time_timer_timeout"]

@@ -4,7 +4,7 @@ extends Node
 @export var player: Player
 
 
-var magazine_capacity: int = WeaponManager.magazine_capacity.get(WeaponManager.player_main_weapon)
+var magazine_capacity: int = WeaponManager.MAGAZINE_CAPACITY.get(WeaponManager.player_main_weapon)
 var current_ammo := magazine_capacity:
 	set(value):
 		current_ammo = clampi(value, 0, magazine_capacity)

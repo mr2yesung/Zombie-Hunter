@@ -4,6 +4,7 @@
 
 [node name="GunSoundPlayer" type="AudioStreamPlayer"]
 autoplay = true
+bus = &"sfx"
 script = ExtResource("1_sdbw4")
 
 [connection signal="finished" from="." to="." method="_on_finished"]

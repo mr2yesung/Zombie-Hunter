@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://d01n7u75kipxc"]
+[gd_scene load_steps=7 format=3 uid="uid://d01n7u75kipxc"]
 
 [ext_resource type="Script" path="res://scripts/main_menu/options_screen.gd" id="1_ei2p7"]
 [ext_resource type="Theme" uid="uid://cc4383eh3m54w" path="res://resources/uis/theme_button_dropdown.tres" id="2_7v3qj"]
 [ext_resource type="Theme" uid="uid://codxo4j8fmbmi" path="res://resources/uis/theme_button_blue.tres" id="3_3dq0u"]
 [ext_resource type="Script" path="res://scripts/main_menu/buttons/option_button.gd" id="3_kgd8i"]
+[ext_resource type="Script" path="res://scripts/main_menu/volume_slider.gd" id="4_l8yxd"]
+[ext_resource type="Script" path="res://scripts/main_menu/mouse_sensitivity_slider.gd" id="5_84dwy"]
 
 [node name="OptionsScreen" type="Control"]
 layout_mode = 3
@@ -26,6 +28,11 @@ grow_vertical = 2
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 theme = ExtResource("2_7v3qj")
+
+[node name="GraphicsLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Graphics"
+horizontal_alignment = 1
 
 [node name="Resolution" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -82,6 +89,101 @@ text = "VSync"
 layout_mode = 2
 fit_to_longest_item = false
 script = ExtResource("3_kgd8i")
+
+[node name="AudioLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Audio"
+horizontal_alignment = 1
+
+[node name="MasterVolume" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/MasterVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master Volume"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MasterVolume"]
+layout_mode = 2
+alignment = 1
+
+[node name="MasterVolumeSlider" type="HSlider" parent="CenterContainer/VBoxContainer/MasterVolume/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("4_l8yxd")
+
+[node name="MusicVolume" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/MusicVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music Volume"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MusicVolume"]
+layout_mode = 2
+alignment = 1
+
+[node name="MusicVolumeSlider" type="HSlider" parent="CenterContainer/VBoxContainer/MusicVolume/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("4_l8yxd")
+bus_index = 1
+
+[node name="SFXVolume" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/SFXVolume"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SFX Volume"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/SFXVolume"]
+layout_mode = 2
+alignment = 1
+
+[node name="SFXVolumeSlider" type="HSlider" parent="CenterContainer/VBoxContainer/SFXVolume/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("4_l8yxd")
+bus_index = 2
+
+[node name="ControlLabel" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Controls"
+horizontal_alignment = 1
+
+[node name="MouseSensitivity" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/MouseSensitivity"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Mouse Sensitivity"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/MouseSensitivity"]
+layout_mode = 2
+alignment = 1
+
+[node name="MouseSensitivitySlider" type="HSlider" parent="CenterContainer/VBoxContainer/MouseSensitivity/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+min_value = 0.5
+max_value = 5.0
+step = 0.1
+value = 0.5
+exp_edit = true
+script = ExtResource("5_84dwy")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

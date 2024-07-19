@@ -5,3 +5,4 @@
 
 [node name="GunReloadPlayer" instance=ExtResource("1_de5wo")]
 stream = ExtResource("2_t5322")
+bus = &"sfx"

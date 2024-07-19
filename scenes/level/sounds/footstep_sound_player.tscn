@@ -10,7 +10,9 @@ script = ExtResource("1_m31a8")
 [node name="WalkSoundPlayer" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 stream = ExtResource("2_e8qmn")
+bus = &"sfx"
 
 [node name="RunSoundPlayer" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 stream = ExtResource("3_q2o2w")
+bus = &"sfx"
