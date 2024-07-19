@@ -14,6 +14,7 @@ fire_rate = 14.0
 recoil = 0.05
 muzzle_flash = NodePath("MuzzleFlashSmall")
 gun_sound_player = ExtResource("2_ebnyj")
+reload_time = 2.5
 
 [node name="machine_gun" parent="." index="1" instance=ExtResource("2_drflo")]
 transform = Transform3D(-4, 0, -6.03983e-07, 0, 4, 0, 6.03983e-07, 0, -4, 0.143625, -0.0557357, -0.36265)

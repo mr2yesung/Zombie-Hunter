@@ -16,6 +16,7 @@ recoil = 0.2
 muzzle_flash = NodePath("MuzzleFlashLarge")
 weapon_type = 1
 gun_sound_player = ExtResource("3_33fnl")
+reload_time = 4.0
 
 [node name="rocket_launcher" parent="." index="1" instance=ExtResource("3_hpiwh")]
 transform = Transform3D(-4, 0, 3.49691e-07, 0, 4, 0, -3.49691e-07, 0, -4, 0.206991, -0.135164, -0.583725)

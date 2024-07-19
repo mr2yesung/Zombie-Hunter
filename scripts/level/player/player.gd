@@ -21,13 +21,14 @@ var stamina: float = MAX_STAMINA:
 @onready var state_machine: StateMachine = $StateMachine
 @onready var playback: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
 @onready var stamina_bar: ProgressBar = $StatsUI/StaminaBarMargin/StaminaBar
+@onready var ammo_label: Label = $StatsUI/AmmoMargin/AmmoLabel
 
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	stamina_bar.value = stamina / MAX_STAMINA * 100.0
 
 

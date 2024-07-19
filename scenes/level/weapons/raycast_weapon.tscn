@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgqa4ms1kod6a"]
+[gd_scene load_steps=5 format=3 uid="uid://bgqa4ms1kod6a"]
 
 [ext_resource type="Script" path="res://scripts/level/weapons/raycast_weapon.gd" id="1_1lqf5"]
 [ext_resource type="PackedScene" uid="uid://b1cuduj3sscq6" path="res://scenes/level/weapons/sparks.tscn" id="2_t1nfk"]
 [ext_resource type="PackedScene" uid="uid://kydh715ahbm8" path="res://scenes/level/weapons/bloods.tscn" id="3_jna6w"]
+[ext_resource type="PackedScene" uid="uid://cmqauohcqk2c8" path="res://scenes/level/weapons/sounds/gun_reload_player.tscn" id="4_xdmvd"]
 
 [node name="RaycastWeapon" type="Node3D" node_paths=PackedStringArray("cooldown_timer")]
 script = ExtResource("1_1lqf5")
 spark_scene = ExtResource("2_t1nfk")
 blood_scene = ExtResource("3_jna6w")
 cooldown_timer = NodePath("CooldownTimer")
+gun_reload_player = ExtResource("4_xdmvd")
 
 [node name="CooldownTimer" type="Timer" parent="."]
 one_shot = true
