@@ -93,10 +93,22 @@ transform = Transform3D(1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, 0, 10.7422
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15.2219, 8.25672)
 
 [node name="AmmoPickup" parent="NavigationRegion3D/Background" instance=ExtResource("8_0psvc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.02185, 0.2, -11.8746)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.02185, 0.2, 39.1254)
 
 [node name="ZombieSpawner" parent="NavigationRegion3D/Background" instance=ExtResource("9_avv4j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.61301, -3.8743e-07, -25.5559)
+
+[node name="ZombieSpawner2" parent="NavigationRegion3D/Background" instance=ExtResource("9_avv4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.61301, -3.8743e-07, -39.3676)
+
+[node name="ZombieSpawner3" parent="NavigationRegion3D/Background" instance=ExtResource("9_avv4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.61301, -3.8743e-07, -50.8686)
+
+[node name="ZombieSpawner4" parent="NavigationRegion3D/Background" instance=ExtResource("9_avv4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2679, -3.8743e-07, -50.8686)
+
+[node name="ZombieSpawner5" parent="NavigationRegion3D/Background" instance=ExtResource("9_avv4j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.2679, -3.8743e-07, -32.6421)
 
 [node name="Door" parent="NavigationRegion3D/Background" instance=ExtResource("3_pjmfy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23, 0, 0)

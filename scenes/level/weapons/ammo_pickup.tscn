@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dsw8117nr1e2k" path="res://assets/meshes/weapons/ammos/ammo_uzi.glb" id="6_685k5"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0f755"]
-size = Vector3(3, 3, 3)
+size = Vector3(1, 3, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jcq4o"]
 metallic = 1.0

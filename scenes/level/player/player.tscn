@@ -1,9 +1,10 @@
-[gd_scene load_steps=38 format=3 uid="uid://cg6b253fifg4g"]
+[gd_scene load_steps=40 format=3 uid="uid://cg6b253fifg4g"]
 
 [ext_resource type="Script" path="res://scripts/level/player/player.gd" id="1_d05mm"]
 [ext_resource type="Script" path="res://scripts/level/player/smooth_camera.gd" id="2_5sklg"]
 [ext_resource type="PackedScene" uid="uid://dq4yxt43g5als" path="res://scenes/level/weapons/machine_gun.tscn" id="3_1npvi"]
 [ext_resource type="Script" path="res://scripts/level/player/crosshair.gd" id="3_r2m71"]
+[ext_resource type="Script" path="res://scenes/level/player/score_label.gd" id="4_3q2sk"]
 [ext_resource type="Script" path="res://scripts/level/player/weapon_spawner.gd" id="5_nwx4e"]
 [ext_resource type="PackedScene" uid="uid://8wqw368dp1ho" path="res://scenes/level/weapons/sniper.tscn" id="6_wa77t"]
 [ext_resource type="PackedScene" uid="uid://dbyxkeya1epo3" path="res://scenes/level/weapons/uzi.tscn" id="7_lncqh"]
@@ -28,6 +29,11 @@ height = 3.5
 bg_color = Color(0, 0.470588, 0.0862745, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_y2bmx"]
+font_size = 64
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fdgf5"]
 font_size = 64
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
@@ -229,6 +235,21 @@ layout_mode = 2
 label_settings = SubResource("LabelSettings_y2bmx")
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="StatsUI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="StatsUI/CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 24
+
+[node name="ScoreLabel" type="Label" parent="StatsUI/CenterContainer/MarginContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_fdgf5")
+script = ExtResource("4_3q2sk")
 
 [node name="WeaponSpawner" type="Node" parent="." node_paths=PackedStringArray("weapon_parent_camera")]
 script = ExtResource("5_nwx4e")

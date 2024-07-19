@@ -14,6 +14,7 @@ const MINIMUM_LOOKAT_DISTANCE_SQUARED := 0.0001
 @export var aggro_range_squared := 900.0
 @export var animation_tree: AnimationTree
 @export var max_health := 100
+@export var points := 1
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var provoked := false
@@ -23,11 +24,14 @@ var dead := false
 	set(value):
 		health = value
 		
-		# enemy should recognize the player when hit
-		provoke_zombie()
+		if not provoked:
+			# enemy should recognize the player when hit
+			provoke_zombie()
 		
-		if health < 1:
+		if health < 1 and not dead:
 			dead = true
+			
+			ScoreManager.current_score += points
 			
 			# reset horizontal velocity to 0
 			velocity.x = 0.0
