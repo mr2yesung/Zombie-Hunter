@@ -33,8 +33,5 @@ func _on_select_to_main() -> void:
 
 
 func _on_start_game() -> void:
-	# test
-	printt("game start", WeaponManager.player_main_weapon)
 	# TODO: loading screen?
-	# TODO: loop background music only to menu scene?
 	GameSceneManager.move_to_level()

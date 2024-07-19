@@ -41,6 +41,8 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_css11")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("2_7mobx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 30)
 

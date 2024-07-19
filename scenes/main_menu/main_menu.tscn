@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d1j2ue4y0osoe"]
+[gd_scene load_steps=14 format=3 uid="uid://d1j2ue4y0osoe"]
 
 [ext_resource type="PackedScene" uid="uid://i38gtgp55q0g" path="res://scenes/main_menu/main_screen.tscn" id="1_2gpgf"]
 [ext_resource type="Script" path="res://scripts/main_menu/main_menu.gd" id="1_3ukpw"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://beawrv3oy2kae" path="res://assets/meshes/backgrounds/wall_door.glb" id="7_5hsf7"]
 [ext_resource type="PackedScene" uid="uid://biwss5o74nfba" path="res://assets/meshes/backgrounds/door_broken.glb" id="8_d3jf6"]
 [ext_resource type="PackedScene" uid="uid://cj42s3o3sgb8s" path="res://assets/meshes/backgrounds/fence.glb" id="9_x6ks0"]
+[ext_resource type="AudioStream" uid="uid://cq5q2vtiwnxrv" path="res://assets/audios/backgrounds/background_loop.wav" id="10_h7ljc"]
 [ext_resource type="PackedScene" uid="uid://wd3dsicpw473" path="res://assets/meshes/backgrounds/wall.glb" id="10_psn5c"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2bx0i"]
@@ -123,6 +124,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 9, -30)
 [node name="Floor" type="CSGBox3D" parent="Background"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, -7.5)
 size = Vector3(60, 0.3, 45)
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_h7ljc")
+autoplay = true
+bus = &"music"
 
 [connection signal="main_to_options" from="MainScreen" to="." method="_on_main_to_options"]
 [connection signal="main_to_select" from="MainScreen" to="." method="_on_main_to_select"]
