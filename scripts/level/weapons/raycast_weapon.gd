@@ -27,6 +27,8 @@ func shoot_raycast() -> void:
 			collider.health -= damage
 			spawn_particle(blood_scene)
 		else:
+			if collider is BrokableProps:
+				collider.health -= damage
 			spawn_particle(spark_scene)
 
 

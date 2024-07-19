@@ -1,14 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://be5rbt0xckrtt"]
+[gd_scene load_steps=5 format=3 uid="uid://niim686qghrk"]
 
+[ext_resource type="Script" path="res://scripts/level/props/door.gd" id="1_11r4r"]
 [ext_resource type="PackedScene" uid="uid://cmerurto1hfb2" path="res://assets/meshes/backgrounds/door.glb" id="1_jj7ac"]
+[ext_resource type="PackedScene" uid="uid://biwss5o74nfba" path="res://assets/meshes/backgrounds/door_broken.glb" id="3_prck3"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_4w1nf"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_64pl6"]
 size = Vector3(2.8, 6, 0.3)
 
-[node name="door" instance=ExtResource("1_jj7ac")]
+[node name="Door" type="StaticBody3D"]
+script = ExtResource("1_11r4r")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+[node name="door" parent="." instance=ExtResource("1_jj7ac")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+[node name="door_broken" parent="." instance=ExtResource("3_prck3")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 3.15, 0.15)
-shape = SubResource("BoxShape3D_4w1nf")
+shape = SubResource("BoxShape3D_64pl6")

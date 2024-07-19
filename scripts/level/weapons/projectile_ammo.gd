@@ -10,18 +10,14 @@ var damage: int
 var direction: Vector3:
 	set(value):
 		direction = value.normalized()
-var exploded := false
 
 
 func _physics_process(delta: float) -> void:
-	if not exploded:
-		position += direction * delta * projectile_speed
+	position += direction * delta * projectile_speed
 
 
 func _on_body_entered(body: Node3D) -> void:
-	exploded = true
-	
-	if body is Enemy:
+	if body is Enemy or body is BrokableProps:
 		body.health -= damage
 	
 	explode()
