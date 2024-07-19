@@ -19,32 +19,43 @@ points = 5
 [node name="zombie_mutant" parent="." instance=ExtResource("1_2nfta")]
 
 [node name="Skeleton3D" parent="zombie_mutant/Root" index="0"]
-bones/18/position = Vector3(0.119071, 1.31253, 0.152402)
-bones/18/rotation = Quaternion(0.294494, -0.0891685, 0.951405, -0.0122574)
-bones/20/rotation = Quaternion(0.008248, 0.00177798, 0.0425683, 0.999058)
-bones/23/rotation = Quaternion(0.38512, 0.0295663, 0.0680896, 0.919876)
-bones/24/rotation = Quaternion(-0.355621, -0.10885, -0.0106602, 0.928209)
-bones/26/rotation = Quaternion(0.152475, 0.489662, 0.498471, -0.698934)
-bones/27/rotation = Quaternion(0.404861, 0.27247, -0.400518, 0.775521)
-bones/28/rotation = Quaternion(0.252286, 0.0121796, 0.00418664, 0.967567)
-bones/29/rotation = Quaternion(0.0449267, 0.673441, 0.0405645, 0.736759)
-bones/37/rotation = Quaternion(0.666974, -0.656915, 0.337086, 0.0999133)
-bones/38/rotation = Quaternion(0.621807, 0.540226, -0.293631, -0.48507)
-bones/39/rotation = Quaternion(-0.00912461, -0.00474449, 0.108683, 0.994023)
-bones/40/rotation = Quaternion(0.131724, 0.0959064, 0.0992839, 0.981628)
-bones/48/rotation = Quaternion(0.930634, 0.215774, 0.0974162, 0.279055)
-bones/49/rotation = Quaternion(0.503158, 0.0817551, 0.171904, 0.842969)
-bones/50/rotation = Quaternion(-0.692339, -0.15636, 0.000847278, 0.704427)
-bones/53/rotation = Quaternion(0.818677, -0.345663, -0.0693817, 0.453288)
-bones/54/rotation = Quaternion(0.460478, -0.0200311, -0.209742, 0.862304)
-bones/55/rotation = Quaternion(-0.465567, 0.291594, 0.0220822, 0.835304)
+bones/7/rotation = Quaternion(-0.707107, 1.54543e-08, 0.707107, -1.54543e-08)
+bones/16/rotation = Quaternion(-0.707107, -1.09685e-07, 0.707107, -1.54543e-08)
+bones/18/position = Vector3(0.466724, 1.3824, 0.0578626)
+bones/18/rotation = Quaternion(-0.214065, -0.0260801, 0.97347, 0.0764961)
+bones/20/rotation = Quaternion(0.00263717, 0.0305453, -0.0399448, 0.998731)
+bones/23/rotation = Quaternion(0.439955, 0.109145, -0.170349, 0.874933)
+bones/24/rotation = Quaternion(-0.242699, 0.0968269, 0.0590501, 0.96345)
+bones/26/rotation = Quaternion(0.444975, 0.287838, 0.633063, -0.56425)
+bones/27/rotation = Quaternion(0.444897, 0.26388, -0.392851, 0.760331)
+bones/28/rotation = Quaternion(0.135488, 0.0124708, 0.00224835, 0.990698)
+bones/29/rotation = Quaternion(0.0442197, 0.674564, 0.0420329, 0.735691)
+bones/30/rotation = Quaternion(0.109591, -0.165112, 0.0794629, 0.976941)
+bones/31/rotation = Quaternion(0.176888, 0.062909, -0.02508, 0.981898)
+bones/32/rotation = Quaternion(0.371777, -0.0312414, -0.034635, 0.92715)
+bones/34/rotation = Quaternion(-0.0556269, 0.783561, 0.281625, 0.551022)
+bones/35/rotation = Quaternion(0.191509, 0.012532, 0.0452918, 0.980365)
+bones/37/rotation = Quaternion(0.591305, -0.71432, 0.176684, 0.329982)
+bones/38/rotation = Quaternion(0.774681, 0.531843, -0.0196473, -0.341507)
+bones/39/rotation = Quaternion(-0.0127347, -0.00471739, 0.151684, 0.988336)
+bones/40/rotation = Quaternion(-0.0919568, -0.0157696, 0.12623, 0.987604)
+bones/41/rotation = Quaternion(0.181801, -0.0853214, -0.0309983, 0.979136)
+bones/42/rotation = Quaternion(-0.378719, 0.0651235, -0.0470933, 0.922016)
+bones/43/rotation = Quaternion(-0.10188, -0.0284923, -0.0123839, 0.994312)
+bones/45/rotation = Quaternion(-0.346956, 0.826736, -0.256657, -0.36091)
+bones/46/rotation = Quaternion(-0.512875, 0.0229856, 0.248334, 0.821439)
+bones/48/rotation = Quaternion(0.932209, 0.14254, 0.0588035, 0.327432)
+bones/49/rotation = Quaternion(0.58702, -0.0461391, 0.166133, 0.790998)
+bones/50/rotation = Quaternion(-0.653641, -0.321307, -0.200102, 0.655343)
+bones/53/rotation = Quaternion(0.99037, -0.0800516, -0.106948, 0.0363349)
+bones/54/rotation = Quaternion(0.38071, 0.0903347, -0.134367, 0.910409)
+bones/55/rotation = Quaternion(-0.457614, 0.389331, 0.339286, 0.723807)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.75, 0)
 shape = SubResource("CapsuleShape3D_p0376")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-debug_enabled = true
 
 [connection signal="zombie_die" from="zombie_mutant" to="." method="_on_zombie_die"]
 
