@@ -24,6 +24,7 @@ var stamina: float = MAX_STAMINA:
 @onready var ammo_label: Label = $StatsUI/AmmoMargin/AmmoLabel
 @onready var ammo_manager: Node = $AmmoManager
 @onready var game_over_screen: Control = $GameOverScreen
+@onready var death_sound_player: AudioStreamPlayer = $DeathSoundPlayer
 
 
 func _ready() -> void:
@@ -102,5 +103,6 @@ func update_label() -> void:
 
 
 func player_die() -> void:
-	# add player die sound
+	death_sound_player.play()
+	
 	game_over_screen.game_over()

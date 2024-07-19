@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://cg6b253fifg4g"]
+[gd_scene load_steps=37 format=3 uid="uid://cg6b253fifg4g"]
 
 [ext_resource type="Script" path="res://scripts/level/player/player.gd" id="1_d05mm"]
 [ext_resource type="Script" path="res://scripts/level/player/smooth_camera.gd" id="2_5sklg"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://scripts/level/player/ammo_manager.gd" id="16_kmvxl"]
 [ext_resource type="Script" path="res://scripts/level/player/states/run.gd" id="16_yttop"]
 [ext_resource type="PackedScene" uid="uid://da7tyly3wh1ig" path="res://scenes/level/game_over_screen.tscn" id="17_3cdol"]
+[ext_resource type="AudioStream" uid="uid://c08nhvnh48rw0" path="res://assets/audios/players/player_dead.wav" id="18_q41w1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ukj58"]
 radius = 0.75
@@ -280,5 +281,9 @@ script = ExtResource("16_kmvxl")
 player = NodePath("..")
 
 [node name="GameOverScreen" parent="." instance=ExtResource("17_3cdol")]
+
+[node name="DeathSoundPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("18_q41w1")
 
 [connection signal="timeout" from="StateMachine/Fall/FallTimeTimer" to="StateMachine/Fall" method="_on_fall_time_timer_timeout"]

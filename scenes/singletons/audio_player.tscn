@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cq5q2vtiwnxrv" path="res://assets/audios/backgrounds/background_loop.wav" id="3_k7yp8"]
 
 [node name="AudioPlayer" type="Node"]
+process_mode = 3
 script = ExtResource("1_cd0eq")
 
 [node name="ClickSoundPlayer" type="AudioStreamPlayer" parent="."]

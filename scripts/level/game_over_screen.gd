@@ -13,4 +13,5 @@ func game_over() -> void:
 
 func _on_menu_button_pressed() -> void:
 	get_tree().paused = false
+	AudioPlayer.play_click()
 	GameSceneManager.move_to_menu()
