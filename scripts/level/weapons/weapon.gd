@@ -22,14 +22,15 @@ var reloading := false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("reload"):
-		var load_amount: int = player.ammo_manager.get_load_amount()
-		
-		if load_amount > 0:
-			reloading = true
-			play_reload_sound()
-			var tween := create_tween()
-			tween.tween_interval(reload_time)
-			tween.tween_callback(reload.bind(load_amount))
+		if not reloading:
+			var load_amount: int = player.ammo_manager.get_load_amount()
+			
+			if load_amount > 0:
+				reloading = true
+				play_reload_sound()
+				var tween := create_tween()
+				tween.tween_interval(reload_time)
+				tween.tween_callback(reload.bind(load_amount))
 
 
 func _shoot(callback: Callable) -> void:
