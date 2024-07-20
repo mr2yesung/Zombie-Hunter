@@ -10,6 +10,7 @@ zombie_base = ExtResource("2_t18mo")
 zombie_mutant = ExtResource("3_bpka2")
 
 [node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 10.0
 one_shot = true
 autostart = true
 

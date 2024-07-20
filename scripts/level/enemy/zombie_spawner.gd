@@ -1,8 +1,8 @@
 extends Node3D
 
 
-const MIN_SPAWN_INTERVAL := 15.0
-const MAX_SPAWN_INTERVAL := 30.0
+const MIN_SPAWN_INTERVAL := 30.0
+const MAX_SPAWN_INTERVAL := 60.0
 
 @export var zombie_base: PackedScene
 @export var zombie_mutant: PackedScene

@@ -263,8 +263,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 10.05, -31)
 [node name="target6" parent="NavigationRegion3D/Props/BaseSector2" instance=ExtResource("9_d276j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 10.05, -31)
 
-[node name="ZombieSpawner" parent="NavigationRegion3D/Props/BaseSector2" instance=ExtResource("9_avv4j")]
-
 [node name="BaseSector3" type="Node3D" parent="NavigationRegion3D/Props"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115, 0, -35)
 
@@ -567,9 +565,6 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 [node name="AmmoPickup" parent="NavigationRegion3D/Props/BuildingSector/SecondFloor" instance=ExtResource("8_0psvc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.2, -3)
 
-[node name="ZombieSpawner" parent="NavigationRegion3D/Props/BuildingSector/SecondFloor" instance=ExtResource("9_avv4j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -35)
-
 [node name="FirstFloor" type="Node3D" parent="NavigationRegion3D/Props/BuildingSector"]
 
 [node name="stair" parent="NavigationRegion3D/Props/BuildingSector/FirstFloor" instance=ExtResource("10_0l7aw")]
@@ -761,9 +756,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8847, 1.05, 16)
 [node name="target3" parent="NavigationRegion3D/Props/SideSector/FirstFloor" instance=ExtResource("9_d276j")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 29.1153, 1.05, 15)
 
-[node name="ZombieSpawner2" parent="NavigationRegion3D/Props/SideSector/FirstFloor" instance=ExtResource("9_avv4j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 8)
-
 [node name="AmmoPickup" parent="NavigationRegion3D/Props/SideSector/FirstFloor" instance=ExtResource("8_0psvc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0.2, -43)
 
@@ -905,9 +897,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8847, 1.05, 16)
 [node name="target3" parent="NavigationRegion3D/Props/SideSector2/FirstFloor" instance=ExtResource("9_d276j")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 29.1153, 1.05, 15)
 
-[node name="ZombieSpawner" parent="NavigationRegion3D/Props/SideSector2/FirstFloor" instance=ExtResource("9_avv4j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.00001, 0, -38)
-
 [node name="AmmoPickup" parent="NavigationRegion3D/Props/SideSector2/FirstFloor" instance=ExtResource("8_0psvc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27, 0.2, -43)
 
@@ -1001,9 +990,6 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 
 [node name="AmmoPickup" parent="NavigationRegion3D/Props/BuildingSector2/SecondFloor" instance=ExtResource("8_0psvc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.2, -3)
-
-[node name="ZombieSpawner" parent="NavigationRegion3D/Props/BuildingSector2/SecondFloor" instance=ExtResource("9_avv4j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -35)
 
 [node name="FirstFloor" type="Node3D" parent="NavigationRegion3D/Props/BuildingSector2"]
 
@@ -1151,9 +1137,6 @@ transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 
 
 [node name="AmmoPickup" parent="NavigationRegion3D/Props/BuildingSector3/SecondFloor" instance=ExtResource("8_0psvc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0.2, -3)
-
-[node name="ZombieSpawner" parent="NavigationRegion3D/Props/BuildingSector3/SecondFloor" instance=ExtResource("9_avv4j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, -35)
 
 [node name="FirstFloor" type="Node3D" parent="NavigationRegion3D/Props/BuildingSector3"]
 
